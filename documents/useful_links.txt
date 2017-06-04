@@ -1,0 +1,11 @@
+1. http://www.learndatasci.com/python-finance-part-yahoo-finance-api-pandas-matplotlib/
+	Python for finance: Yahoo API, pandas, matplotlib
+
+2. Mastering Pandas for Finances
+	(9 chapters, bot 1 and 2 can be done together)
+
+3. GPW w praktyce
+	(can be divided into 3 parts)
+
+4. https://ntguardian.wordpress.com/2016/09/19/introduction-stock-market-data-python-1/
+	An Introduction to Stock Market Data Analysis with Python 
