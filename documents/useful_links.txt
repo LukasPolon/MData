@@ -9,3 +9,6 @@
 
 4. https://ntguardian.wordpress.com/2016/09/19/introduction-stock-market-data-python-1/
 	An Introduction to Stock Market Data Analysis with Python 
+
+
+Pandas datareader
