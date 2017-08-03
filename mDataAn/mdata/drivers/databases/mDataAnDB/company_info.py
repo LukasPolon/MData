@@ -51,7 +51,6 @@ class CompanyInfo(BASE):
         """ Remove company_info table from database, if exists."""
         engine = DB_DRIVER.register_engine()
         if engine.dialect.has_table(engine, self.__tablename__):
-            # BASE.metadata.bind = engine
             company_info = self.__table__
             company_info.drop()
 
@@ -59,14 +58,13 @@ class CompanyInfo(BASE):
         """ Create company_info table if not exists."""
         engine = DB_DRIVER.register_engine()
         if not engine.dialect.has_table(engine, self.__tablename__):
-            # Base.metadata.bind = engine
             company_info = self.__table__
             company_info.create()
 
     @database_session
     def fill_up_table(self, session):
         """ Fill up company_info table with data from csv file."""
-        [session.add(CompanyInfo(**row)) for row in self._get_data()]
+        [session.add(CompanyInfo(**row)) for row in self._get_data()[1:]]
         session.commit()
 
 
