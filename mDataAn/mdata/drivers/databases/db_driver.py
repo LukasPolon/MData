@@ -65,13 +65,16 @@ def database_session(func):
         Returns:
             func_wrapper(function): inner decorator function
     """
-    #  TODO: inner function have to accept more than session object
-    def func_wrapper(self):
+    def func_wrapper(self, *args, **kwargs):
         db_driver = DbDriver()
         engine = db_driver.register_engine()
         session = db_driver.create_db_session(engine)
-        func(self, session)
+
+        kwargs.update({'session': session})
+        result = func(self, *args, **kwargs)
+
         db_driver.close_db_session(session)
+        return result
     return func_wrapper
 
 
