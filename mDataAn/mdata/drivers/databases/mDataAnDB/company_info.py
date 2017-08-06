@@ -3,18 +3,28 @@ import csv
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
-from sqlalchemy import create_engine
 
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+
+from mdata.drivers.databases.db_driver import DbDriver
+from mdata.drivers.databases.db_driver import database_session
+from mdata.drivers.databases.db_driver import BASE
 
 from mdata import common
 
-Base = declarative_base()
+DB_DRIVER = DbDriver()
 
 
-class CompanyInfo(Base):
-    """ Model for company_info table."""
+class CompanyInfo(BASE):
+    """ Model for company_info table.
+
+        Attributes:
+            id (int): primary key, auto-increment
+            symbol (str): data set symbol, e.g. AAPL
+            name (str): company name, e.g. Apple Inc.
+            sector (str): industrial sector, e.g. Technology
+            industry (str): industry branch, e.g. Computer Manufacturing
+            summary_quote (str): direct link to the Nasdaq Composite site
+    """
     __tablename__ = 'company_info'
 
     id = Column(Integer, primary_key=True)
@@ -25,36 +35,36 @@ class CompanyInfo(Base):
     summary_quote = Column(String(40))
 
     def _get_data(self):
-        symbols = list()
+        """ Get stock data from csv file.
+
+            Returns:
+                symbols (list): list of dictionaries, which
+                contains stock data
+        """
         names = ['symbol', 'name', 'sector', 'industry', 'summary_quote']
         with open(common.COMPANY_LIST_CSV, 'rb') as f:
-            reader = csv.DictReader(f, fieldnames=names)
-            [symbols.append(row) for row in reader]
+            symbols = [row for row in csv.DictReader(f, fieldnames=names)]
 
         return symbols
 
     def reset_table(self):
-        engine = create_engine('{conn}{db}'.format(db=common.TEST_DATABASE,
-                                                   conn=common.DB_CONNECTION))
+        """ Remove company_info table from database, if exists."""
+        engine = DB_DRIVER.register_engine()
         if engine.dialect.has_table(engine, self.__tablename__):
-            Base.metadata.bind = engine
             company_info = self.__table__
             company_info.drop()
 
     def create_table(self):
-        engine = create_engine('{conn}{db}'.format(db=common.TEST_DATABASE,
-                                                   conn=common.DB_CONNECTION))
-        Base.metadata.bind = engine
-        company_info = self.__table__
-        company_info.create()
+        """ Create company_info table if not exists."""
+        engine = DB_DRIVER.register_engine()
+        if not engine.dialect.has_table(engine, self.__tablename__):
+            company_info = self.__table__
+            company_info.create()
 
-    def fill_up_table(self):
-        engine = create_engine('{conn}{db}'.format(db=common.TEST_DATABASE,
-                                                   conn=common.DB_CONNECTION))
-        Base.metadata.bind = engine
-        dbsession = sessionmaker(bind=engine)
-        session = dbsession()
-        [session.add(CompanyInfo(**row)) for row in self._get_data()]
+    @database_session
+    def fill_up_table(self, session):
+        """ Fill up company_info table with data from csv file."""
+        [session.add(CompanyInfo(**row)) for row in self._get_data()[1:]]
         session.commit()
 
 
