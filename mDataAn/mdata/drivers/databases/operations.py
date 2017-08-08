@@ -2,6 +2,7 @@ from mdata.drivers.databases.mDataAnDB.company_info import CompanyInfo
 from mdata.drivers.databases.db_driver import DbDriver
 from mdata.drivers.databases.db_driver import database_session
 
+
 from sqlalchemy.sql.expression import select
 
 
@@ -12,10 +13,11 @@ class Operations(object):
     @property
     def tables(self):
         if self._tables is None:
-            tables = {'company_info': CompanyInfo}
-        return tables
+            self._tables = {'company_info': CompanyInfo}
+        return self._tables
 
-    def get_columns(self, table=None, columns=None):
+    @database_session
+    def get_columns(self, session=None, table=None, columns=None):
         try:
             selected_table = self.tables[table]
         except KeyError:
@@ -26,10 +28,6 @@ class Operations(object):
         if columns:
             columns_attr = [getattr(selected_table, col_name)
                             for col_name in columns]
-
-        db_driver = DbDriver()
-        engine = db_driver.register_engine()
-        session = db_driver.create_db_session(engine)
         if columns:
             result = session.query(*columns_attr)
         else:
@@ -39,13 +37,9 @@ class Operations(object):
         return table_data
 
 
-
-
-
-
 if __name__ == '__main__':
     ob = Operations()
-    ob.get_columns(table='company_info', columns=['id', 'name'])
+    r = ob.get_columns(table='company_info', columns=['id', 'name'])
 
 
 
