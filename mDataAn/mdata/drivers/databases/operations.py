@@ -34,10 +34,7 @@ class Operations(object):
             result = session.query(mytable)
 
         table_data = [row for row in result]
-
         return table_data
-
-
 if __name__ == '__main__':
     ob = Operations()
     r = ob.get_columns(table='company_info', columns=['id', 'name'])
