@@ -1,5 +1,6 @@
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.label import Label
+from kivy.uix.image import Image
 
 
 class RegressionScreenLayout(AnchorLayout):

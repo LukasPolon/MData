@@ -14,7 +14,7 @@ import os
 # gticker='GOOG'
 # dfg = web.DataReader(gticker, 'google', '2009/1/1', '2014/3/1')
 # print (type(dfg))
-# print(dfg)
+# print(d fg)
 
 
 def read_csv():

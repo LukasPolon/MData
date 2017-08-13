@@ -1,5 +1,44 @@
-# Kivy:
-python -m pip install --upgrade pip wheel setuptools
-python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
-pip --no-cache-dir install kivy.deps.gstreamer
-python -m pip install kivy
+alabaster==0.7.10
+Babel==2.4.0
+canvas==0.2
+certifi==2017.4.17
+chardet==3.0.4
+click==6.7
+colorama==0.3.9
+configparser==3.5.0
+cycler==0.10.0
+Cython==0.25.2
+docutils==0.13.1
+fix-yahoo-finance==0.0.18
+funcsigs==1.0.2
+functools32==3.2.3.post2
+idna==2.5
+imagesize==0.7.1
+Jinja2==2.9.6
+MarkupSafe==1.0
+matplotlib==2.0.2
+mock==2.0.0
+multitasking==0.0.4
+pandas==0.20.3
+pandas-datareader==0.4.0
+pbr==3.1.1
+pockets==0.5.1
+pygal==2.4.0
+Pygments==2.2.0
+pyparsing==2.2.0
+pypiwin32==219
+python-dateutil==2.6.1
+pytz==2017.2
+requests==2.18.1
+requests-file==1.4.2
+requests-ftp==0.3.1
+scikit-learn==0.18.2
+scipy==0.19.1
+six==1.10.0
+snowballstemmer==1.2.1
+Sphinx==1.6.3
+sphinxcontrib-napoleon==0.6.1
+sphinxcontrib-websupport==1.0.1
+SQLAlchemy==1.1.12
+typing==3.6.1
+urllib3==1.21.1

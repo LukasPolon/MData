@@ -1,6 +1,7 @@
 from kivy.uix.button import Button
 from mdata.drivers.config.config_management import ConfigManagement
 
+
 class OptionsButton(Button):
     def __init__(self, base, **kwargs):
         self.base = base
@@ -10,6 +11,4 @@ class OptionsButton(Button):
     def on_press(self):
         if self.base.screen_manager.current\
                 != self.base.screens['options'].name:
-            ob = ConfigManagement()
-            ob.get_data()
             self.base.screen_manager.switch_to(self.base.screens['options'])
