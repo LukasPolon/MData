@@ -8,6 +8,7 @@ from mdata.drivers.config.config_management import ConfigManagement
 from mdata.gui.items.temp_dir_textinput import TempDirTextinput
 from mdata.gui.items.company_textinput import CompanyTextinput
 from mdata.gui.items.date_textinput import DateTextinput
+from mdata.gui.items.regression_dropdown import RegressionDropdown
 
 from mdata.gui.buttons.save_button import SaveButton
 
@@ -20,12 +21,21 @@ class OptionsScreenLayout(FloatLayout):
         self._inputs = None
         self._images = None
         self._buttons = None
+        self._regression = None
         self.config_obj = ConfigManagement()
         self._config_data = None
         super(OptionsScreenLayout, self).__init__(**kwargs)
 
     def __call__(self):
         return self.generate()
+
+    @property
+    def regression(self):
+        if self._regression is None:
+            reg = ['method_1', 'method_2', 'method_3',
+                   'method_4']
+            self._regression = reg
+        return self._regression
 
     @property
     def config_data(self):
@@ -50,7 +60,9 @@ class OptionsScreenLayout(FloatLayout):
                       'date_from': Label(text='Date from',
                                          pos=(-400, 100)),
                       'date_to': Label(text='Date to',
-                                       pos=(-250, 100))}
+                                       pos=(-250, 100)),
+                      'regression': Label(text='Regression method',
+                                          pos=(-370, 0))}
             self._labels = labels
         return self._labels
 
@@ -70,7 +82,11 @@ class OptionsScreenLayout(FloatLayout):
                       'date_to': DateTextinput(pos=(175, 370),
                                                conf_data=self.config_data,
                                                base=self,
-                                               role='date_to')}
+                                               role='date_to'),
+                      'regression': RegressionDropdown(pos=(15, 270),
+                                                conf_data=self.config_data,
+                                                reg_methods=self.regression,
+                                                base=self)}
             self._inputs = inputs
         return self._inputs
 
@@ -89,9 +105,11 @@ class OptionsScreenLayout(FloatLayout):
         self.add_widget(self.inputs['company']())
         self.add_widget(self.buttons['save'])
         self.add_widget(self.labels['date_from'])
-        self.add_widget(self.inputs['date_from'])
+        self.add_widget(self.inputs['date_from']())
         self.add_widget(self.labels['date_to'])
-        self.add_widget(self.inputs['date_to'])
+        self.add_widget(self.inputs['date_to']())
+        self.add_widget(self.labels['regression'])
+        self.add_widget(self.inputs['regression']())
         self.hide_save_labels()
 
         return self

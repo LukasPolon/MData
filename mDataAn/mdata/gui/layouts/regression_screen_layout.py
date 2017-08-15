@@ -1,17 +1,20 @@
-from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
-from kivy.uix.image import Image
+
+from mdata.gui.layouts.reg_menu_layout import RegMenuLayout
+from mdata.gui.layouts.reg_display_layout import RegDisplayLayout
 
 
-class RegressionScreenLayout(AnchorLayout):
+class RegressionScreenLayout(GridLayout):
     def __init__(self, **kwargs):
-        self.anchor_x = 'center'
-        self.anchor_y = 'top'
+        self.reg_menu = None
+        self.cols = 2
         super(RegressionScreenLayout, self).__init__(**kwargs)
 
     def __call__(self):
         return self.generate()
 
     def generate(self):
-        self.add_widget(Label(text='Regression Screen Label'))
+        self.add_widget(RegDisplayLayout()())
+        self.add_widget(RegMenuLayout()())
         return self

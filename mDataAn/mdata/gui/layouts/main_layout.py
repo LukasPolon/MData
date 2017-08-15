@@ -12,8 +12,6 @@ from mdata.gui.layouts.menu_layout import MenuLayout
 
 class MainLayout(GridLayout):
     def __init__(self, **kwargs):
-        self._info_screen = None
-        self._menu_screen = None
         self._screens = None
         self.screen_manager = ScreenManager(transition=SwapTransition())
         self.menu_layout = MenuLayout(self.screen_manager, self.screens)

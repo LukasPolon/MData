@@ -33,26 +33,27 @@ class DataDownload(object):
 if __name__ == '__main__':
     ob = DataDownload()
     e = ob.download()
-    d = e.to_dict()
-    date_ = [date.to_pydatetime()
-             for i, date in enumerate(d['High'].keys())
-             if i % 2 is 0]
+    e.plot()
+    # d = e.to_dict()
+    # date_ = [date.to_pydatetime()
+    #          for i, date in enumerate(d['High'].keys())
+    #          if i % 2 is 0]
     # date2 = [d for i,d in enumerate(date_) if i % 2 is 0]
     # high = [hi for hi in d['High'].values()]
-    high = [(da.to_pydatetime(), h)
-            for da, h in d['High'].iteritems()]
+    # high = [(da.to_pydatetime(), h)
+    #         for da, h in d['High'].iteritems()]
     # print(high[0][0])
     # print(type(high[0][0]))
     # high = [(str(date).split(' ')[0], h)
     #         for date, h in d['High'].iteritems()]
-    import pygal
+    # import pygal
 
     # xy_chart = pygal.XY()
     # xy_chart.title = 'XY Cosinus'
     # xy_chart.add('high', high)
     # xy_chart.render_to_file('diag.svg')
 
-    dateline = pygal.DateLine(x_label_rotation=25, stroke=False)
-    dateline.x_labels = date_
-    dateline.add('High', high, show_only_major_dots=True)
-    dateline.render_to_file(os.path.join(common.IMAGES_DIR, 'chart.svg'))
+    # dateline = pygal.DateLine(x_label_rotation=25, stroke=False)
+    # dateline.x_labels = date_
+    # dateline.add('High', high, show_only_major_dots=True)
+    # dateline.render_to_file(os.path.join(common.IMAGES_DIR, 'chart.svg'))

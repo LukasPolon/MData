@@ -29,7 +29,8 @@ class SaveButton(Button):
                     .format(box='  '.join(wrong_labels))
             self.base.labels['not_saved_custom'].text = error
             self.base.add_widget(self.base.labels['not_saved_custom'])
-        except Exception:
+        except Exception as e:
+            print(e)
             self.base.add_widget(self.base.labels['not_saved'])
 
     def validate_inputs(self):
