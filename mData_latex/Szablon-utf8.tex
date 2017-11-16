@@ -1,0 +1,212 @@
+%%====================================================================%%
+%%                AKADEMIA GÓRNICZO-HUTNICZA W KRAKOWIE
+%%                    WYDZIAŁ MATEMATYKI STOSOWANEJ
+%%                          PRACA MAGISTERSKA
+%%
+%%       Autor : ----
+%% Specjalność : ----
+%%   Nr albumu : ----
+%%    Promotor : ----
+%%  Data (wer) : DD.MM.YYYY ...
+%%
+%%--------------------------------------------------------------------%%
+%%
+%%
+%% ---------------
+%%   PLIK GŁÓWNY
+%% ---------------
+%%
+\documentclass[man,mfi|min|mpt|mok|mub|mza|miz|bsp]{mgrwms}
+%%
+%  Szablon dla kodowania UTF-8 przygotowany z pierwotnego szablonu
+%  przy pomocy programu Gżegżółka 5.51.03 (www.gzegzolka.com)
+%
+%  Obowiązkowe opcje klasy:
+%  - woman|man : wersja odpowiednio dla Pań i Panów,
+%  - mfi|min|mpt|mok|mub|mza|miz|bsp : specjalności według skrótów:
+%      * mfi :  Matematyka finansowa
+%      * min :  Matematyka w informatyce
+%      * mpt :  Matematyka w naukach technicznych i przyrodniczych
+%      * mok :  Matematyka obliczeniowa i komputerowa
+%      * mub :  Matematyka ubezpieczeniowa
+%      * mza :  Matematyka w zarządzaniu
+%      * miz :  Matematyka w informatyce i zarządzaniu
+%      * bsp :  Bez specjalności
+%  (opis pozostałych opcji znajduje się w dokumentacji 'UserGuide.pdf')
+%%
+%% ------- PAKIETY ------- %%
+%%
+\usepackage[utf8]{inputenc}      % kodowanie UTF-8
+% \usepackage{amsmath}           % łatwiejszy skład matematyki
+% \usepackage{amssymb}
+% \usepackage{setspace}          % zmiana interlinii (np. 1,5 wiersza odstępu)
+% \usepackage{makeidx}           % odkomentować, jeśli dołączony jest indeks
+%
+%  <... pozostale pakiety wedle uznania ...>
+%
+\usepackage{polski}         % pakiet polonizacyjny
+% \usepackage[T1]{fontenc}  % lub z opcją 'QX', wymagane dla pakietu 'lmodern'
+% \usepackage{lmodern}      % zalecane czcionki LModern
+%%
+%  Dodatkowe polecenia które trzeba umieścić w preambule:
+%
+% \makeindex  % jeśli dołączony jest indeks (nieobowiązkowy)
+% \includeonly{...,...,...,...}  % dla warunkowej kompilacji
+%%
+%% BiBTeX (opcjonalnie)
+% \bibliographystyle{ddabbrv}  % lub np. plabbrv, plalpha, plplain ...
+% \nocite{*}
+%%
+%%
+\begin{document}
+%%
+%%
+%% ---------------
+%%   NASZE MAKRA
+%% ---------------
+%%
+%  Miejsce na nasze makra. Innym sposobem może być
+%  umieszczenie ich w osobnym pliku i wczytanie poleceniem \input{----}
+%%
+%%
+%% ---------------------------------
+%%   METRYCZKA PRACY i SPIS TREŚCI
+%% ---------------------------------
+%%
+\title{Analiza i porównanie wybranych właściwości języka Python na poziomie kodu pośredniego}
+\author{Maciej Tomczuk}
+\promotor{dr inż. Piotr Błaszyński}
+\nralbumu{24022}
+\slowakluczowe{Python, kod pośredni, disassembler}
+\keywords{Python, bytecode, disassembler}
+%%
+\maketitle
+%%
+%%
+\tableofcontents
+%%
+%%
+%% ----------------------
+%%   STRESZCZENIA PRACY
+%% ----------------------
+%%
+%% ------- POLSKIE ------- %%
+%%
+\begin{streszczenie}
+%%
+Przykładowe streszczenie i test polskich znaków: ąśćżźłóęą
+%
+%  <Treść streszczenia po polsku>
+%
+%%
+\end{streszczenie}
+%%
+%% ------- ANGIELSKIE ------- %%
+%%
+\begin{abstract}
+%%
+%
+%  <Treść streszczenia po angielsku>
+%
+%%
+\end{abstract}
+%%
+%% ------- PODZIĘKOWANIA ------- %%
+%%
+%  <Jeśli zachodzi taka potrzeba, można dodać tutaj tekst podziękowania,
+%   dedykacji itp.>
+% \newpage
+% \thispagestyle{empty}
+%  <Treść podziękowania z odpowiednim formatowaniem>
+%%
+%%
+%% ----------------------
+%%   GŁÓWNY TEKST PRACY
+%% ----------------------
+%%
+%% ------- WSTĘP ------- %%
+%%
+\begin{wstep}  % ew. np. \begin{wstep}[Wprowadzenie]
+%%
+%
+%  <Treść wstępu>
+%
+%%
+\end{wstep}
+%%
+\input{chapter_1}
+
+\input{chapter_2}
+
+%% ------- ZAKOŃCZENIE ------- %%
+%%
+% \begin{zakonczenie}  % ew. np. \begin{zakonczenie}[Podsumowanie]
+%%
+%
+%  <Treść zakończenia, podsumowania (jeśli jest taka potrzeba umieszczenia)>
+%
+%%
+% \end{zakonczenie}
+%%
+%%
+%% -----------------------
+%%   ROZDZIAŁY DODATKOWE
+%% -----------------------
+%%
+% \appendix
+%%
+%% ------- DODATEK A ------- %%
+%%
+% \chapter{----}
+%%
+%
+%  <Treść dodatku A, może być umieszczona w innym pliku
+%   i ładowana przez \input{----} lub \includeonly{...,...}>
+%
+%%
+%%
+%% ----------------
+%%   BIBLIOGRAFIA
+%% ----------------
+%%
+%  (Możemy użyć środowiska 'thebibliography' lub też bazy BiBTeX)
+%%
+%% BiBTeX (opcjonalnie)
+% \bibliography{<pliki bib>}
+%%
+\begin{thebibliography}{88}  % ew. np. '8' jeśli liczba pozycji < 10
+%%
+%
+% Treść bibliografii, wpisy typu:
+% \bibitem{<Klucz do cytowań>} ...
+% \bibitem{<Klucz do cytowań>} ...
+%
+%%
+\end{thebibliography}
+%%
+%%
+%% ----------------------------
+%%   DODATKOWE ELEMENTY PRACY
+%% ----------------------------
+%%
+%  Tutaj umieścimy dodatkowe (niebowiązkowe) cześci pracy:
+%  - Spis skrótów, symboli i oznaczeń (jako \chapter*{...})
+%  - Spis ilustracji (\listoffigures)
+%  - Spis tablic (\listoftables)
+%  - Skorowidz (nieobowiązkowy, umieszczenie ułatwia lekturę pracy)
+%
+% \chapter*{Spis symboli i oznaczeń}  % ew. podobny tytuł
+%  
+%   <Tabela ze spisem symboli, oznaczeń itp.>
+%
+% \listoffigures
+%
+% \listoftables
+%
+% \printindex  % jeżeli do pracy dołączony jest indeks
+%%
+%%
+\end{document}
+%%
+%% [Wersja dla: 2011/09/06 v1.06]
+%%====================================================================%%

@@ -8,9 +8,11 @@ from mdata.drivers.config.config_management import ConfigManagement
 from mdata.gui.items.temp_dir_textinput import TempDirTextinput
 from mdata.gui.items.company_textinput import CompanyTextinput
 from mdata.gui.items.date_textinput import DateTextinput
+from mdata.gui.items.company_list_textinput import CompanyListTextinput
 from mdata.gui.items.regression_dropdown import RegressionDropdown
 
 from mdata.gui.buttons.save_button import SaveButton
+from mdata.gui.buttons.next_button import NextButton
 
 
 class OptionsScreenLayout(FloatLayout):
@@ -86,7 +88,8 @@ class OptionsScreenLayout(FloatLayout):
                       'regression': RegressionDropdown(pos=(15, 270),
                                                 conf_data=self.config_data,
                                                 reg_methods=self.regression,
-                                                base=self)}
+                                                base=self),
+                      'company_list': CompanyListTextinput(pos=(500, 80))}
             self._inputs = inputs
         return self._inputs
 
@@ -94,7 +97,9 @@ class OptionsScreenLayout(FloatLayout):
     def buttons(self):
         if self._buttons is None:
             buttons = {'save': SaveButton(pos=(50, 10), inputs=self.inputs,
-                                          base=self)}
+                                          base=self),
+                       'next': NextButton(pos=(600, 10),
+                                     company_list=self.inputs['company_list'])}
             self._buttons = buttons
         return self._buttons
 
@@ -110,6 +115,8 @@ class OptionsScreenLayout(FloatLayout):
         self.add_widget(self.inputs['date_to']())
         self.add_widget(self.labels['regression'])
         self.add_widget(self.inputs['regression']())
+        self.add_widget(self.inputs['company_list']())
+        self.add_widget(self.buttons['next'])
         self.hide_save_labels()
 
         return self

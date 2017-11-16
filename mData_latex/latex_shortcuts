@@ -1,0 +1,19 @@
+1. Lista numerowana
+begin{enumerate}
+\item dualizm falowo\dywiz korpuskularny, a w szczególnoci
+  \begin{enumerate}
+  \item korpuskularn¹ naturê fetorów,
+  \item falow¹ naturê blaba,
+  \item falowo\dywiz korpuskularn¹ naturê gryzmo³ów;
+  \end{enumerate}
+\item postêpuj¹c¹ gryzmolizacjê poszczególnych dziedzin nauki, w
+  szczególnoci badañ systemowych i rozcieñczonych;
+  
+2. Wstawienie obrazka
+\begin{figure}[tp]
+  \centering
+  \framebox{\vbox to 4cm{\vfil\hbox to
+      7cm{\hfil\tiny.\hfil}\vfil}}
+  \caption{Artystyczna wizja blaba w~obrazie wêgierskiego artysty
+    Josipa~A. Rozkoszy pt.~,,Blaba''}
+\end{figure}

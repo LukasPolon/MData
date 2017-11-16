@@ -2,6 +2,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 
 from mdata.gui.buttons.load_data_button import LoadDataButton
+from mdata.gui.buttons.regression_analyze_button import RegressionAnalyzeButton
 
 
 class RegMenuLayout(BoxLayout):
@@ -9,6 +10,7 @@ class RegMenuLayout(BoxLayout):
         self.orientation = 'vertical'
         self.width = 80
         self.display_panel = kwargs['display']
+        self.plots = kwargs['plots']
         self.size_hint = (None, 1)
         self._buttons = None
         super(RegMenuLayout, self).__init__(**kwargs)
@@ -21,8 +23,11 @@ class RegMenuLayout(BoxLayout):
     def buttons(self):
         if self._buttons is None:
             buttons = {'load_data': LoadDataButton(text='Load stock\n     data',
-                                                   display=self.display_panel),
-                       'regression': Button(text='Regression\n   analyze'),
+                                                   display=self.display_panel,
+                                                   plots=self.plots),
+                       'regression': RegressionAnalyzeButton(
+                                        text='Regression\n   analyze',
+                                        display=self.display_panel),
                        'empty': Button,
                        'old_results': Button(text='Load old\n  results')}
             self._buttons = buttons

@@ -23,4 +23,7 @@ if defined _OLD_VIRTUAL_PATH (
 )
 set "PATH=%VIRTUAL_ENV%\Scripts;%PATH%"
 
+set TCL_LIBRARY=C:\Python27\tcl\tcl8.5
+set TK_LIBRARY=C:\Python27\tcl\tk8.5
+
 :END
