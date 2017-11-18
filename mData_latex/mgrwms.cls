@@ -1404,10 +1404,10 @@
 	\def\MgrWMS@Page@MathSpecial{%
 		\MgrWMS@Page@BasicBFnt Optymalizacja}%
 }
-%\@ifundefined{MgrWMS@MathSpecial}{%
-%	\MgrWMS@Error{Zadna ze specjalnosci nie zostala zadeklarowana! %Matemtyka obliczeniowa i komputerowa zostanie uzyta ('mok')!}{}%
-%	\gdef\MgrWMS@MathSpecial{MOK}}{}%
-%\csname MgrWMS@SetMathSpecial@\MgrWMS@MathSpecial\endcsname
+\@ifundefined{MgrWMS@MathSpecial}{%
+	\MgrWMS@Error{Zadna ze specjalnosci nie zostala zadeklarowana! %Matemtyka obliczeniowa i komputerowa zostanie uzyta ('mok')!}{}%
+	\gdef\MgrWMS@MathSpecial{MOK}}{}%
+\csname MgrWMS@SetMathSpecial@\MgrWMS@MathSpecial\endcsname
 %----- Polecenia dla emblematow uczelni i wydzialu  -----%
 \ifMgrWMS@pdftex
 	\def\MgrWMS@LogoAGH{pictures/logo2.pdf}
