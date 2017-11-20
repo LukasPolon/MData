@@ -4,7 +4,9 @@
 
 \section{Dane giełdowe}
 
-\subsection{Definicja giełdy}
+\subsection{Definicje związane z giełdą}
+Giełda jest zbiorem instytucji finansowych, w których odbywa się wymiana papierów wartościowych pomiędzy kupującymi i sprzedającymi\cite{stock_market}.
+Papier wartościowy, zgodnie z prawem o obrocie papierami wartościowymi to "dokument, mający stwierdzać lub stwierdzający istnienie określonego prawa majątkowego utrwalony w takim brzmieniu i w taki sposób, że może stanowić samodzielny przedmiot obrotu publicznego"\cite{ustawa_22_03_1991_papiery_wartosciowe}
 
 \subsection{Źródła danych giełdowych}
 
