@@ -1,0 +1,39 @@
+%% ------- ROZDZIAŁ 1 ------- %%
+%%
+\chapter{Analiza danych statystycznych}
+
+\section{Dane giełdowe}
+
+\subsection{Definicja giełdy}
+
+\subsection{Źródła danych giełdowych}
+
+\subsection{Opis danych giełdowych}
+
+\section{Metody analizy danych giełdowych}
+
+\subsection{Cele analizy danych giełdowych}
+
+\subsection{Analiza regresji}
+
+\section{Statystyczne metody analizy danych}
+
+\subsection{Analiza regresji}
+
+\subparagraph{Regresja liniowa}
+
+\subsection{Analiza regresji w pakiecie scikit-learn}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
