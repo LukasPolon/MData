@@ -1,14 +1,32 @@
 %% ------- ROZDZIAŁ 1 ------- %%
-%%
+
 \chapter{Analiza danych statystycznych}
 
 \section{Dane giełdowe}
 
 \subsection{Definicje związane z giełdą}
 Giełda jest zbiorem instytucji finansowych, w których odbywa się wymiana papierów wartościowych pomiędzy kupującymi i sprzedającymi\cite{stock_market}.
-Papier wartościowy, zgodnie z prawem o obrocie papierami wartościowymi to "dokument, mający stwierdzać lub stwierdzający istnienie określonego prawa majątkowego utrwalony w takim brzmieniu i w taki sposób, że może stanowić samodzielny przedmiot obrotu publicznego"\cite{ustawa_22_03_1991_papiery_wartosciowe}
+Powinna ona koncentrować popyt i podaż na papiery wartościowe, co prowadzi do kształtowania do powszechnego kursu.
+Zapewnia ona również bezpieczny i uregulowany przebieg transakcji oraz upowszechnia informacje, które umożliwiają ocenę aktualnej wartości papierów wartościowych.
+
+\textcolor{red}{Dodać informacje o różnych giełdach na świecie!}
+
+Papier wartościowy, zgodnie z prawem o obrocie papierami wartościowymi, to\\ 
+\textit{"dokument, mający stwierdzać lub stwierdzający istnienie określonego prawa majątkowego utrwalony w takim brzmieniu 
+i w taki sposób, że może stanowić samodzielny przedmiot obrotu publicznego"}\cite{ustawa_22_03_1991_papiery_wartosciowe}
+Papierami wartościowymi mogą być między innymi: akcje, obligacje, czeki, bony skarbowe. Akcje dają nabywcy (akcjonariuszowi) prawo do współwłasności w spółce, która je wyemitowała,
+co przekłada się na bezpośredni udział w wypracowanych zyskach (dywidendy), a także nabycie praw korporacyjnych, umożliwiających decyzyjność w spółce\cite{akcje}.
+
+Obligacje są to papiery dłużne, które poświadczają wierzytelność pomiędzy właścicielem, a dłużnikiem.
+W ich przypadku dłużnikiem jest emitent, który zobowiązuje się do uregulowania wierzytelności w określonym czasie.
+Obligacje emituje się w celu pozyskania kapitału, a obligatoriusz, czyli nabywca, otrzymuje prawo do całkowitego zwrotu inwestycji po upłynięciu określonego terminu,
+a także do otrzymywania stałego dochodu określonego odsetkami\cite{obligacje}.
+
+\textcolor{red}{Dodać akapit o danych giełdowych!}
 
 \subsection{Źródła danych giełdowych}
+Dane giełdowe są dostępne do publicznego wglądu za darmo w różnych serwisach internetowych. Jednym z największych serwisów udostępniających takie dane jest serwis Google Finance.
+Udostępnia on różnego rodzaju
 
 \subsection{Opis danych giełdowych}
 
