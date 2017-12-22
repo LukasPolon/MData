@@ -12,7 +12,8 @@ class RegressionAnalyzeButton(Button):
     def on_press(self):
         self._get_loaded_data()
         self.regression.get_data(self.loaded_data)
-        self.regression.linear_regression()
+        self.regression.linear_regression_price()
+        # self.regression.linear_regression()
 
     def _get_loaded_data(self):
         if self.display.loaded_data is not None:
