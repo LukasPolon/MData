@@ -31,7 +31,10 @@ class LoadDataButton(Button):
         self.base += self.break_bar
         self.display.loaded_data = self.stock_data
         self.plots.upload_data(self.stock_data)
-        self.plots.generate_data_plot()
+        self.plots.generate_price_plot()
+        self.plots.generate_volume_plot()
+        self.plots.generate_high_low_plot()
+        self.plots.save_diagrams()
 
     def update_output(self, conf_data):
         self.base.clear_text()

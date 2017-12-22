@@ -10,6 +10,7 @@ class DataDiagramPopupLayout(GridLayout):
         self.name = 'Data diagram popup layout'
         self.rows = 2
         self.plots = kwargs['plots']
+        self.select_plot = kwargs['select_plot']
         super(DataDiagramPopupLayout, self).__init__(**kwargs)
 
     def __call__(self):
@@ -19,8 +20,11 @@ class DataDiagramPopupLayout(GridLayout):
         if self.plots.last_company and not self._compare_company_vars():
             self.add_widget(self._diagram_not_found_label())
 
-        elif self.plots.unp_plot_fig:
-            self.add_widget(FigureCanvasKivyAgg(self.plots.unp_plot_fig))
+        elif self.plots.unp_plot_fig or self.plots.volume_plot_fig:
+            if self.select_plot == 'price_oc':
+                self.add_widget(FigureCanvasKivyAgg(self.plots.unp_plot_fig))
+            elif self.select_plot == 'volume':
+                self.add_widget(FigureCanvasKivyAgg(self.plots.volume_plot_fig))
         else:
             self.add_widget(self._diagram_not_found_label())
 

@@ -25,6 +25,7 @@ class Regression(object):
         e = pd.DataFrame(zip(new_data.columns, lm.coef_), columns=['features',
                                                             'estimatedCoefficients'])
         print(e)
+
     def linear_regression2(self):
         boston = load_boston()
         bos = pd.DataFrame(boston.data)

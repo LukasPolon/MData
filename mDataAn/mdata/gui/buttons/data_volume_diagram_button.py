@@ -3,19 +3,19 @@ from kivy.uix.popup import Popup
 from mdata.gui.layouts.data_diagram_popup_layout import DataDiagramPopupLayout
 
 
-class DataDiagramButton(Button):
+class DataVolumeDiagramButton(Button):
     def __init__(self, **kwargs):
         self.size_hint = (0.15, 0.1)
-        self.text = 'Price data\n  diagram'
+        self.text = 'Volume data\n   diagram'
         self.plots = kwargs['plots']
-        super(DataDiagramButton, self).__init__(**kwargs)
+        super(DataVolumeDiagramButton, self).__init__(**kwargs)
 
     def on_press(self):
         self.generate_popup()
 
     def generate_popup(self):
         data_popup = DataDiagramPopupLayout(plots=self.plots,
-                                            select_plot='price_oc')
+                                            select_plot='volume')
         popup = Popup(title='DataDiagram',
                       content=data_popup,
                       size=(550, 550),
@@ -30,4 +30,3 @@ class DataDiagramButton(Button):
             check = False
 
         return check
-
