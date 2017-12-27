@@ -27,7 +27,8 @@ class RegMenuLayout(BoxLayout):
                                                    plots=self.plots),
                        'regression': RegressionAnalyzeButton(
                                         text='Regression\n   analyze',
-                                        display=self.display_panel),
+                                        display=self.display_panel,
+                                        plots=self.plots),
                        'empty': Button,
                        'old_results': Button(text='Load old\n  results')}
             self._buttons = buttons

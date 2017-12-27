@@ -1,6 +1,7 @@
 from sklearn import linear_model
 from numpy import array
 from copy import deepcopy
+from datetime import datetime
 
 import numpy as np
 import pandas as pd
@@ -85,12 +86,15 @@ class Regression(object):
         coefficients = linear_reg.coef_
         score = r2_score(close_values_test, close_pred)
 
-        print('Train data: ', len(close_dates_train))
-        print('Test data: ', len(close_dates_test))
-        print(error, coefficients, score)
+        df_results = pd.DataFrame(index=np.concatenate(tuple(close_dates_test)),
+                                  data={'Close': np.concatenate(tuple(close_values_test)),
+                                        'Regression': np.concatenate(tuple(close_pred))})
 
-
-
+        return {'close_pred': close_pred,
+                'error': error,
+                'coefficients': coefficients,
+                'score': score,
+                'df_results': df_results}
 
     def linear_regression2(self):
         boston = load_boston()

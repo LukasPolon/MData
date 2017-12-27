@@ -1,5 +1,8 @@
 from datetime import datetime as dt
 from copy import deepcopy
+from pandas import DataFrame
+from matplotlib import pyplot as plt
+
 from mdata.drivers.config.config_management import ConfigManagement
 
 
@@ -7,6 +10,7 @@ class PlotsGenerate(object):
 
     def __init__(self):
         self.data = None
+        self.reg_data = None
         self.price_data = None
         self.volume_data = None
         self.high_low_data = None
@@ -19,6 +23,9 @@ class PlotsGenerate(object):
         self.high_low_fig = None
         self.last_company = None
         self._diagram_names = None
+
+        self.regression_plot = None
+        self.regression_fig = None
 
     @property
     def diagram_names(self):
@@ -40,7 +47,11 @@ class PlotsGenerate(object):
                                             date=format_date),
                      'volume': '{company}_volume_{date}.png'
                                .format(company=self.last_company,
-                                       date=format_date)}
+                                       date=format_date),
+                     'linear_reg': '{company}_linear_reg_{date}.png'
+                                   .format(company=self.last_company,
+                                           date=format_date)
+                     }
             self._diagram_names = names
         return self._diagram_names
 
@@ -94,11 +105,24 @@ class PlotsGenerate(object):
         self.high_low_plot.set_ylabel('Value')
         self.high_low_fig = self.high_low_plot.get_figure()
 
-    def get_regression_data(self):
-        pass
+    def generate_regression_plot(self):
+        company = self._get_company()
+        self.last_company = company
+        regression_meth = self._get_regression_method()
+        plot_title = 'Regression ({reg_meth}) for {comp}'\
+                     .format(comp=company, reg_meth=regression_meth)
+
+        df_reg_results = self.reg_data['df_results']
+        self.regression_plot = df_reg_results.plot(title=plot_title, grid=True)
+        self.regression_plot.set_ylabel('Value')
+        self.regression_plot.set_xlabel('Date(Integer)')
+        self.regression_fig = self.regression_plot.get_figure()
 
     def upload_data(self, data):
         self.data = data
+
+    def get_regression_data(self, reg_data):
+        self.reg_data = reg_data
 
     def _get_tempdir(self):
         config_data = self.config_mng.get_data()
@@ -109,6 +133,11 @@ class PlotsGenerate(object):
         config_data = self.config_mng.get_data()
         company = config_data['company']
         return company
+
+    def _get_regression_method(self):
+        config_data = self.config_mng.get_data()
+        reg_meth = config_data['regression']
+        return reg_meth
 
     def save_diagrams(self):
         self.unp_plot_fig.savefig('{dir}\{file}'
@@ -121,4 +150,9 @@ class PlotsGenerate(object):
         self.high_low_fig.savefig('{dir}\{file}'
                                   .format(dir=self._get_tempdir(),
                                           file=self.diagram_names['prices_hl']))
+
+    def save_reg_diagram(self):
+        self.regression_fig.savefig('{dir}\{file}'
+                                  .format(dir=self._get_tempdir(),
+                                          file=self.diagram_names['linear_reg']))
 

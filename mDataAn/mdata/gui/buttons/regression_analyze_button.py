@@ -7,6 +7,7 @@ from mdata.drivers.config.config_management import ConfigManagement
 class RegressionAnalyzeButton(Button):
     def __init__(self, **kwargs):
         self.display = kwargs['display']
+        self.plots = kwargs['plots']
         self.loaded_data = None
         self.regression = Regression()
         self.config = ConfigManagement()
@@ -15,7 +16,10 @@ class RegressionAnalyzeButton(Button):
     def on_press(self):
         self._get_loaded_data()
         self.regression.get_data(self.loaded_data)
-        self.get_reg_method()()
+        reg_data = self.get_reg_method()()
+        self.plots.get_regression_data(reg_data)
+        self.plots.generate_regression_plot()
+        self.plots.save_reg_diagram()
 
     def _get_loaded_data(self):
         if self.display.loaded_data is not None:

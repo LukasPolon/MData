@@ -27,6 +27,11 @@ class DataDiagramPopupLayout(GridLayout):
                 self.add_widget(FigureCanvasKivyAgg(self.plots.high_low_fig))
             elif self.select_plot == 'volume':
                 self.add_widget(FigureCanvasKivyAgg(self.plots.volume_plot_fig))
+            elif self.select_plot == 'reg':
+                try:
+                    self.add_widget(FigureCanvasKivyAgg(self.plots.regression_fig))
+                except:
+                    self.add_widget(self._diagram_not_found_label())
         else:
             self.add_widget(self._diagram_not_found_label())
 
