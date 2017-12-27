@@ -23,6 +23,8 @@ class DataDiagramPopupLayout(GridLayout):
         elif self.plots.unp_plot_fig or self.plots.volume_plot_fig:
             if self.select_plot == 'price_oc':
                 self.add_widget(FigureCanvasKivyAgg(self.plots.unp_plot_fig))
+            elif self.select_plot == 'price_hl':
+                self.add_widget(FigureCanvasKivyAgg(self.plots.high_low_fig))
             elif self.select_plot == 'volume':
                 self.add_widget(FigureCanvasKivyAgg(self.plots.volume_plot_fig))
         else:

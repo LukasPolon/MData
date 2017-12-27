@@ -10,9 +10,13 @@ from mdata.gui.items.company_textinput import CompanyTextinput
 from mdata.gui.items.date_textinput import DateTextinput
 from mdata.gui.items.company_list_textinput import CompanyListTextinput
 from mdata.gui.items.regression_dropdown import RegressionDropdown
+from mdata.gui.items.data_split_rate_textinput import DataSplitRateTextinput
 
 from mdata.gui.buttons.save_button import SaveButton
 from mdata.gui.buttons.next_button import NextButton
+from mdata.gui.buttons.open_explorer_button import OpenExplorerButton
+
+from mdata.client.regression import Regression
 
 
 class OptionsScreenLayout(FloatLayout):
@@ -34,9 +38,8 @@ class OptionsScreenLayout(FloatLayout):
     @property
     def regression(self):
         if self._regression is None:
-            reg = ['method_1', 'method_2', 'method_3',
-                   'method_4']
-            self._regression = reg
+            reg = Regression()
+            self._regression = reg.regression_methods.keys()
         return self._regression
 
     @property
@@ -64,7 +67,9 @@ class OptionsScreenLayout(FloatLayout):
                       'date_to': Label(text='Date to',
                                        pos=(-250, 100)),
                       'regression': Label(text='Regression method',
-                                          pos=(-370, 0))}
+                                          pos=(-370, 0)),
+                      'split_rate': Label(text='Data split rate',
+                                          pos=(-390, -75))}
             self._labels = labels
         return self._labels
 
@@ -89,7 +94,10 @@ class OptionsScreenLayout(FloatLayout):
                                                 conf_data=self.config_data,
                                                 reg_methods=self.regression,
                                                 base=self),
-                      'company_list': CompanyListTextinput(pos=(500, 80))}
+                      'company_list': CompanyListTextinput(pos=(500, 80)),
+                      'split_rate': DataSplitRateTextinput(pos=(15, 200),
+                                                    conf_data=self.config_data,
+                                                    base=self)}
             self._inputs = inputs
         return self._inputs
 
@@ -99,7 +107,8 @@ class OptionsScreenLayout(FloatLayout):
             buttons = {'save': SaveButton(pos=(50, 10), inputs=self.inputs,
                                           base=self),
                        'next': NextButton(pos=(600, 10),
-                                     company_list=self.inputs['company_list'])}
+                                     company_list=self.inputs['company_list']),
+                       'explorer': OpenExplorerButton(pos=(250, 270))}
             self._buttons = buttons
         return self._buttons
 
@@ -117,6 +126,9 @@ class OptionsScreenLayout(FloatLayout):
         self.add_widget(self.inputs['regression']())
         self.add_widget(self.inputs['company_list']())
         self.add_widget(self.buttons['next'])
+        self.add_widget(self.labels['split_rate'])
+        self.add_widget(self.inputs['split_rate']())
+        self.add_widget(self.buttons['explorer'])
         self.hide_save_labels()
 
         return self

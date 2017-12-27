@@ -1,5 +1,7 @@
 from kivy.uix.textinput import TextInput
 
+from mdata.client.regression import Regression
+
 
 class RegTextinput(TextInput):
     def __init__(self, **kwargs):

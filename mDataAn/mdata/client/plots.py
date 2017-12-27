@@ -94,6 +94,9 @@ class PlotsGenerate(object):
         self.high_low_plot.set_ylabel('Value')
         self.high_low_fig = self.high_low_plot.get_figure()
 
+    def get_regression_data(self):
+        pass
+
     def upload_data(self, data):
         self.data = data
 

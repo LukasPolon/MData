@@ -12,17 +12,32 @@ from sklearn.datasets import load_boston
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
+from mdata.drivers.config.config_management import ConfigManagement
+
 
 class Regression(object):
     def __init__(self):
         self.data = None
+        self.conf = ConfigManagement()
+        self._reg_methods = None
+
+    @property
+    def regression_methods(self):
+        if self._reg_methods is None:
+            reg_methods = {'linear': self.linear_regression_price}
+            self._reg_methods = reg_methods
+        return self._reg_methods
 
     def get_data(self, data):
         self.data = data
 
+    def get_split_rate(self):
+        data = self.conf.get_data()
+        return data['split_rate']
+
     def linear_regression(self):
         data = deepcopy(self.data)
-        split_rate = 50
+        split_rate = self.get_split_rate()
         volume = data.drop(['Open', 'High', 'Low', 'Close', 'Adj Close'],
                            axis=1)
 
@@ -46,7 +61,7 @@ class Regression(object):
 
     def linear_regression_price(self):
         data = deepcopy(self.data)
-        split_rate = 90
+        split_rate = self.get_split_rate()
         close = data.drop(['Open', 'High', 'Low', 'Adj Close', 'Volume'],
                            axis=1)
         close_dates = close.index.values
@@ -100,8 +115,6 @@ class Regression(object):
         training = data[:training_len]
         test = data[training_len:]
         return training, test
-
-
 
 
 if __name__ == '__main__':
