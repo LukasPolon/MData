@@ -34,7 +34,7 @@ class LoadDataButton(Button):
         self.plots.generate_price_plot()
         self.plots.generate_volume_plot()
         self.plots.generate_high_low_plot()
-        self.plots.save_diagrams()
+        # self.plots.save_diagrams()
 
     def update_output(self, conf_data):
         self.base.clear_text()

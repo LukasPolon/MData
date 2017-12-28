@@ -1,0 +1,24 @@
+Company: Ericsson
+Date range: 2017-01-10 - 2017-11-01
+Regression method: : linear
+
+************************************************************
+
+Downloading data...
+Downloading finished.
+
+************************************************************
+
+Regression type: linear
+Selected data: Volume
+Train data: 90%
+
+************************************************************
+
+Regression analyze finished
+Mean square error: 1.07738408701e+13
+Coefficients: [[  6.77033384e-11]]
+Score: -0.0131569481076
+
+************************************************************
+

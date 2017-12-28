@@ -3,6 +3,7 @@ from kivy.uix.button import Button
 
 from mdata.gui.buttons.load_data_button import LoadDataButton
 from mdata.gui.buttons.regression_analyze_button import RegressionAnalyzeButton
+from mdata.gui.buttons.regression_save_button import RegressionSaveButton
 
 
 class RegMenuLayout(BoxLayout):
@@ -30,7 +31,9 @@ class RegMenuLayout(BoxLayout):
                                         display=self.display_panel,
                                         plots=self.plots),
                        'empty': Button,
-                       'old_results': Button(text='Load old\n  results')}
+                       'save_reg': RegressionSaveButton(text='Save',
+                                                display=self.display_panel,
+                                                plots=self.plots)}
             self._buttons = buttons
         return self._buttons
 
@@ -39,4 +42,4 @@ class RegMenuLayout(BoxLayout):
         self.add_widget(self.buttons['regression'])
         self.add_widget(self.buttons['empty']())
         self.add_widget(self.buttons['empty']())
-        self.add_widget(self.buttons['old_results'])
+        self.add_widget(self.buttons['save_reg'])

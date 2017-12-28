@@ -27,18 +27,22 @@ class PlotsGenerate(object):
         self.regression_plot = None
         self.regression_fig = None
 
+    def get_format_date(self):
+        current_date = dt.today()
+        format_date = '{year}_{month}_{day}_{hour}_{min}_{sec}' \
+                      .format(year=current_date.year,
+                              month=current_date.month,
+                              day=current_date.day,
+                              hour=current_date.hour,
+                              min=current_date.minute,
+                              sec=current_date.second)
+
+        return format_date
+
     @property
     def diagram_names(self):
         if self._diagram_names is None:
-            current_date = dt.today()
-            format_date = '{year}_{month}_{day}_{hour}_{min}_{sec}'\
-                          .format(year=current_date.year,
-                                  month=current_date.month,
-                                  day=current_date.day,
-                                  hour=current_date.hour,
-                                  min=current_date.minute,
-                                  sec=current_date.second)
-
+            format_date = self.get_format_date()
             names = {'prices_hl': '{company}_hl_prices_{date}.png'
                                .format(company=self.last_company,
                                        date=format_date),

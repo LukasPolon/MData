@@ -31,7 +31,7 @@ class RegressionAnalyzeButton(Button):
         reg_data = self.get_reg_method()()
         self.plots.get_regression_data(reg_data)
         self.plots.generate_regression_plot()
-        self.plots.save_reg_diagram()
+        # self.plots.save_reg_diagram()
 
         self.base += 'Regression analyze finished\n'
         self.base += 'Mean square error: {mse}\n'.format(mse=reg_data['error'])
