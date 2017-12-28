@@ -10,6 +10,7 @@ from mdata.gui.items.company_textinput import CompanyTextinput
 from mdata.gui.items.date_textinput import DateTextinput
 from mdata.gui.items.company_list_textinput import CompanyListTextinput
 from mdata.gui.items.regression_dropdown import RegressionDropdown
+from mdata.gui.items.data_type_dropdown import DataTypeDropdown
 from mdata.gui.items.data_split_rate_textinput import DataSplitRateTextinput
 
 from mdata.gui.buttons.save_button import SaveButton
@@ -30,6 +31,7 @@ class OptionsScreenLayout(FloatLayout):
         self._regression = None
         self.config_obj = ConfigManagement()
         self._config_data = None
+        self._data_types = None
         super(OptionsScreenLayout, self).__init__(**kwargs)
 
     def __call__(self):
@@ -41,6 +43,13 @@ class OptionsScreenLayout(FloatLayout):
             reg = Regression()
             self._regression = reg.regression_methods.keys()
         return self._regression
+
+    @property
+    def data_types(self):
+        if self._data_types is None:
+            reg = Regression()
+            self._data_types = reg.regression_data_types
+        return self._data_types
 
     @property
     def config_data(self):
@@ -69,7 +78,10 @@ class OptionsScreenLayout(FloatLayout):
                       'regression': Label(text='Regression method',
                                           pos=(-370, 0)),
                       'split_rate': Label(text='Data split rate',
-                                          pos=(-390, -75))}
+                                          pos=(-390, -75)),
+                      'data_types': Label(text='Data type for\n'
+                                               ' regression',
+                                          pos=(-190, -75))}
             self._labels = labels
         return self._labels
 
@@ -97,6 +109,10 @@ class OptionsScreenLayout(FloatLayout):
                       'company_list': CompanyListTextinput(pos=(500, 80)),
                       'split_rate': DataSplitRateTextinput(pos=(15, 200),
                                                     conf_data=self.config_data,
+                                                    base=self),
+                      'data_type': DataTypeDropdown(pos=(220, 200),
+                                                    conf_data=self.config_data,
+                                                    data_types=self.data_types,
                                                     base=self)}
             self._inputs = inputs
         return self._inputs
@@ -108,7 +124,7 @@ class OptionsScreenLayout(FloatLayout):
                                           base=self),
                        'next': NextButton(pos=(600, 10),
                                      company_list=self.inputs['company_list']),
-                       'explorer': OpenExplorerButton(pos=(250, 270))}
+                       'explorer': OpenExplorerButton(pos=(250, 300))}
             self._buttons = buttons
         return self._buttons
 
@@ -129,6 +145,8 @@ class OptionsScreenLayout(FloatLayout):
         self.add_widget(self.labels['split_rate'])
         self.add_widget(self.inputs['split_rate']())
         self.add_widget(self.buttons['explorer'])
+        self.add_widget(self.inputs['data_type']())
+        self.add_widget(self.labels['data_types'])
         self.hide_save_labels()
 
         return self
