@@ -1,17 +1,13 @@
-from sklearn import linear_model
-from numpy import array
-from copy import deepcopy
-from datetime import datetime
-
 import numpy as np
 import pandas as pd
-import scipy.stats as stats
-import matplotlib.pyplot as plt
-import sklearn
 
-from sklearn.datasets import load_boston
+from copy import deepcopy
+
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
+
+from sklearn.kernel_ridge import KernelRidge
+from sklearn.svm import SVR
 
 from mdata.drivers.config.config_management import ConfigManagement
 
@@ -26,7 +22,8 @@ class Regression(object):
     @property
     def regression_methods(self):
         if self._reg_methods is None:
-            reg_methods = {'linear': self.linear}
+            reg_methods = {'linear': self.linear,
+                           'svr': self.kernel_ridge}
             self._reg_methods = reg_methods
         return self._reg_methods
 
@@ -73,42 +70,6 @@ class Regression(object):
 
         print(error, coefficients, score)
 
-    def linear_regression_price(self):
-        data = deepcopy(self.data)
-        split_rate = self.get_split_rate()
-        close = data.drop(['Open', 'High', 'Low', 'Adj Close', 'Volume'],
-                           axis=1)
-        close_dates = close.index.values
-        close_values = close.values
-
-        close_dates = np.reshape(close_dates, (len(close_dates), 1))
-        close_dates = [[int(d[0])] for d in close_dates]
-        close_values = np.reshape(close_values, (len(close_values), 1))
-
-        close_dates_train, close_dates_test = self.split_data(close_dates,
-                                                              split_rate)
-        close_values_train, close_values_test = self.split_data(close_values,
-                                                                split_rate)
-
-        linear_reg = LinearRegression()
-        linear_reg.fit(close_dates_train, close_values_train)
-
-        close_pred = linear_reg.predict(close_dates_test)
-
-        error = mean_squared_error(close_values_test, close_pred)
-        coefficients = linear_reg.coef_
-        score = r2_score(close_values_test, close_pred)
-
-        df_results = pd.DataFrame(index=np.concatenate(tuple(close_dates_test)),
-                                  data={'Close': np.concatenate(tuple(close_values_test)),
-                                        'Regression': np.concatenate(tuple(close_pred))})
-
-        return {'close_pred': close_pred,
-                'error': error,
-                'coefficients': coefficients,
-                'score': score,
-                'df_results': df_results}
-
     def linear(self):
         data = deepcopy(self.data)
         split_rate = self.get_split_rate()
@@ -152,6 +113,71 @@ class Regression(object):
                 'df_results': df_results,
                 'chosen_data': chosen_data_type}
 
+    def kernel_ridge(self):
+        data = deepcopy(self.data)
+        split_rate = self.get_split_rate()
+        chosen_data_type = self.get_data_type()
+        all_data_types = self.regression_data_types
+        data_to_drop = [data_t for data_t in all_data_types
+                        if data_t != chosen_data_type]
+
+        sort = data.drop(data_to_drop, axis=1)
+        sort_dates = sort.index.values
+        sort_values = sort.values
+        sort_values = np.concatenate(sort_values)
+
+        # sort_dates = np.reshape(sort_dates, (len(sort_dates), 1))
+        # sort_dates = [[int(d[0])] for d in sort_dates]
+        # sort_values = np.reshape(sort_values, (len(sort_values), 1))
+        sort_dates = [d.astype('M8[D]').astype('O') for d in sort_dates]
+        new_dates = list()
+        for d in sort_dates:
+            d_year = str(d.year)
+            d_month = '0{m}'.format(m=d.month) if len(str(d.month)) is 1 else str(d.month)
+            d_day = '0{d}'.format(d=d.day) if len(str(d.day)) is 1 else str(d.day)
+            new_dates.append(int(''.join([d_year, d_month, d_day])))
+        # sort_dates = [int(''.join([str(d.year), str(d.month), str(d.day)]))
+        #               for d in sort_dates]
+        new_dates = np.asarray(new_dates)
+        new_dates = np.reshape(new_dates, (len(new_dates), 1))
+        sort_dates_train, sort_dates_test = self.split_data(new_dates,
+                                                            split_rate)
+        sort_values_train, sort_values_test = self.split_data(sort_values,
+                                                              split_rate)
+        svr_rbf = SVR(kernel='rbf', C=1e3, gamma=0.1)
+        svr_rbf.fit(sort_dates_train, sort_values_train)
+
+
+
+        sort_pred = svr_rbf.predict(new_dates)
+
+
+        # error = mean_squared_error(sort_values_test, sort_pred)
+        # coefficients = kr_regression.dual_coef_
+        # score = r2_score(sort_values_test, sort_pred)
+        error = 'aa'
+        score = 'ss'
+        coefficients = [123]
+        # print(error, coefficients, score)
+        sort_dates_test = np.concatenate(sort_dates_test)
+        sort_dates_test = [str(x) for x in sort_dates_test]
+
+        sort_dates_train = np.concatenate(sort_dates_train)
+        sort_dates_train = [str(x) for x in sort_dates_train]
+        print(np.concatenate((sort_dates_train, sort_values_test)))
+        df_results = pd.DataFrame(
+            index=np.concatenate((sort_dates_train, sort_dates_test)),
+            data={'Close': np.concatenate((sort_values_train, sort_values_test)),
+                  'Regression': sort_pred})
+        print(df_results)
+        print(sort_dates_test)
+        return {'close_pred': sort_pred,
+                'error': error,
+                'coefficients': coefficients,
+                'score': score,
+                'df_results': df_results,
+                'chosen_data': chosen_data_type}
+
     def split_data(self, data, training_percentage):
         data_len = len(data)
         training_divide = float(training_percentage) / 100
@@ -164,3 +190,51 @@ class Regression(object):
 if __name__ == '__main__':
     ob = Regression()
     ob.linear_regression()
+
+'''
+    def svr(self):
+        data = deepcopy(self.data)
+        split_rate = self.get_split_rate()
+        chosen_data_type = self.get_data_type()
+        all_data_types = self.regression_data_types
+        data_to_drop = [data_t for data_t in all_data_types
+                        if data_t != chosen_data_type]
+        # data_to_drop.pop()
+        #
+        sort = data.drop(data_to_drop, axis=1)
+        sort_dates = sort.index.values
+        sort_values = sort.values
+
+        sort_dates = np.reshape(sort_dates, (len(sort_dates), 1))
+        sort_dates = [[int(d[0])] for d in sort_dates]
+        # sort_values = np.reshape(sort_values, (len(sort_values), 1))
+        sort_values = sort_values.reshape(-1, 1)
+
+        sort_dates_train, sort_dates_test = self.split_data(sort_dates,
+                                                            split_rate)
+        sort_values_train, sort_values_test = self.split_data(sort_values,
+                                                              split_rate)
+
+
+
+        kr_regression = KernelRidge(alpha=1.0)
+        kr_regression.fit(sort_values_train, sort_dates_train)
+
+        sort_pred = kr_regression.predict(sort_dates_test)
+
+        error = mean_squared_error(sort_values_test, sort_pred)
+        coefficients = kr_regression.dual_coef_
+        score = r2_score(sort_values_test, sort_pred)
+        print(error, coefficients, score)
+        df_results = pd.DataFrame(
+            index=np.concatenate(tuple(sort_dates_test)),
+            data={'Close': np.concatenate(tuple(sort_values_test))})#),
+                  #'Regression': np.concatenate(tuple(sort_pred))})
+
+        return {'close_pred': sort_pred,
+                'error': error,
+                'coefficients': coefficients,
+                'score': score,
+                'df_results': df_results,
+                'chosen_data': chosen_data_type}
+'''

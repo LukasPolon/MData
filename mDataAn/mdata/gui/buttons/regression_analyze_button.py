@@ -33,12 +33,12 @@ class RegressionAnalyzeButton(Button):
         self.plots.generate_regression_plot()
         # self.plots.save_reg_diagram()
 
-        self.base += 'Regression analyze finished\n'
-        self.base += 'Mean square error: {mse}\n'.format(mse=reg_data['error'])
-        self.base += 'Coefficients: {coef}\n'\
-                     .format(coef=reg_data['coefficients'])
-        self.base += 'Score: {sc}\n'.format(sc=reg_data['score'])
-        self.base += self.break_bar
+        # self.base += 'Regression analyze finished\n'
+        # self.base += 'Mean square error: {mse}\n'.format(mse=reg_data['error'])
+        # self.base += 'Coefficients: {coef}\n'\
+        #              .format(coef=reg_data['coefficients'])
+        # self.base += 'Score: {sc}\n'.format(sc=reg_data['score'])
+        # self.base += self.break_bar
 
     def _get_loaded_data(self):
         if self.display.loaded_data is not None:
