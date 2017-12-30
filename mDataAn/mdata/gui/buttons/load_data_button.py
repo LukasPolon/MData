@@ -44,7 +44,3 @@ class LoadDataButton(Button):
                      '{date_to}\n'.format(**conf_data)
         self.base += 'Regression method: : {regression}\n'.format(**conf_data)
         self.base += self.break_bar
-
-    # def _generate_plot(self):
-    #     plots = PlotsGenerate(self.stock_data)
-    #     plots.generate_data_plot()

@@ -48,7 +48,11 @@ class RegressionSaveButton(Button):
         if self.plots.regression_fig:
             self.plots.regression_fig.savefig('{dir}\{file}'
                                   .format(dir=folder_name,
-                                          file=self.plots.diagram_names['linear_reg']))
+                                          file=self.plots.diagram_names['regression']))
+        if self.plots.regression_train_fig:
+            self.plots.regression_train_fig.savefig('{dir}\{file}'
+                                  .format(dir=folder_name,
+                                          file=self.plots.diagram_names['regression_train']))
 
     def save_text(self, folder_name):
         conf_data = self.get_config_data()

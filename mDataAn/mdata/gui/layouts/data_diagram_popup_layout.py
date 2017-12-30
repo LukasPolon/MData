@@ -32,6 +32,11 @@ class DataDiagramPopupLayout(GridLayout):
                     self.add_widget(FigureCanvasKivyAgg(self.plots.regression_fig))
                 except:
                     self.add_widget(self._diagram_not_found_label())
+            elif self.select_plot == 'reg_train':
+                try:
+                    self.add_widget(FigureCanvasKivyAgg(self.plots.regression_train_fig))
+                except:
+                    self.add_widget(self._diagram_not_found_label())
         else:
             self.add_widget(self._diagram_not_found_label())
 

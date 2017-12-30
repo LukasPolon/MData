@@ -1,4 +1,8 @@
+import pandas as pd
+import numpy as np
+import matplotlib.dates as mdates
 from datetime import datetime as dt
+
 from copy import deepcopy
 from pandas import DataFrame
 from matplotlib import pyplot as plt
@@ -27,6 +31,9 @@ class PlotsGenerate(object):
         self.regression_plot = None
         self.regression_fig = None
 
+        self.regression_train_plot = None
+        self.regression_train_fig = None
+
     def get_format_date(self):
         current_date = dt.today()
         format_date = '{year}_{month}_{day}_{hour}_{min}_{sec}' \
@@ -52,9 +59,13 @@ class PlotsGenerate(object):
                      'volume': '{company}_volume_{date}.png'
                                .format(company=self.last_company,
                                        date=format_date),
-                     'linear_reg': '{company}_linear_reg_{date}.png'
+                     'regression': '{company}_regression_{date}.png'
                                    .format(company=self.last_company,
-                                           date=format_date)
+                                           date=format_date),
+                     'regression_train': '{company}_regression_train_{date}'\
+                                         '.png'.format(
+                                                     company=self.last_company,
+                                                     date=format_date)
                      }
             self._diagram_names = names
         return self._diagram_names
@@ -116,11 +127,27 @@ class PlotsGenerate(object):
         plot_title = 'Regression ({reg_meth}) for {comp}'\
                      .format(comp=company, reg_meth=regression_meth)
 
-        df_reg_results = self.reg_data['df_results']
+        df_reg_results = self.reg_data['df_all_results']
         self.regression_plot = df_reg_results.plot(title=plot_title, grid=True)
-        self.regression_plot.set_ylabel('Value')
-        self.regression_plot.set_xlabel('Date(Integer)')
+        self.regression_plot.axvline(x=self.reg_data['train_test_vert_date'],
+                                     color='red')
+        self.regression_plot.set_ylabel('Price')
+        self.regression_plot.set_xlabel('Date')
         self.regression_fig = self.regression_plot.get_figure()
+
+    def generate_regression_only_test(self):
+        company = self._get_company()
+        self.last_company = company
+        regression_meth = self._get_regression_method()
+        plot_title = 'Regression train data ({reg_meth}) for {comp}' \
+            .format(comp=company, reg_meth=regression_meth)
+
+        df_reg_results = self.reg_data['df_test_results']
+        self.regression_train_plot = df_reg_results.plot(title=plot_title,
+                                                         grid=True)
+        self.regression_train_plot.set_ylabel('Price')
+        self.regression_train_plot.set_xlabel('Date')
+        self.regression_train_fig = self.regression_train_plot.get_figure()
 
     def upload_data(self, data):
         self.data = data
@@ -158,5 +185,9 @@ class PlotsGenerate(object):
     def save_reg_diagram(self):
         self.regression_fig.savefig('{dir}\{file}'
                                   .format(dir=self._get_tempdir(),
-                                          file=self.diagram_names['linear_reg']))
+                                          file=self.diagram_names['regression']))
+        self.regression_train_fig.savefig('{dir}\{file}'
+                                    .format(dir=self._get_tempdir(),
+                                            file=self.diagram_names[
+                                                'regression_train']))
 

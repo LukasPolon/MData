@@ -1,3 +1,5 @@
+from tabulate import tabulate
+
 from kivy.uix.button import Button
 
 from mdata.client.regression import Regression
@@ -31,14 +33,14 @@ class RegressionAnalyzeButton(Button):
         reg_data = self.get_reg_method()()
         self.plots.get_regression_data(reg_data)
         self.plots.generate_regression_plot()
-        # self.plots.save_reg_diagram()
+        self.plots.generate_regression_only_test()
 
-        # self.base += 'Regression analyze finished\n'
-        # self.base += 'Mean square error: {mse}\n'.format(mse=reg_data['error'])
-        # self.base += 'Coefficients: {coef}\n'\
-        #              .format(coef=reg_data['coefficients'])
-        # self.base += 'Score: {sc}\n'.format(sc=reg_data['score'])
-        # self.base += self.break_bar
+        self.base += 'Regression analyze finished\n'
+        self.base += 'Mean square error: {mse}\n'.format(mse=reg_data['error'])
+
+        self.base += 'Score: {sc}\n'.format(sc=reg_data['score'])
+        self.display_reg_table(reg_data)
+        self.base += self.break_bar
 
     def _get_loaded_data(self):
         if self.display.loaded_data is not None:
@@ -56,5 +58,31 @@ class RegressionAnalyzeButton(Button):
         return {'reg_type': conf_data['regression'],
                 'reg_data_type': conf_data['data_type'],
                 'split_rate': conf_data['split_rate']}
+
+    def display_reg_table(self, reg_data):
+        self.base += 'Regression test data:\n'
+        self.base += '--------------------------\n'
+        pd_keys = reg_data['df_test_results'].keys()
+        pd_values = reg_data['df_test_results'].values
+        pd_dates = reg_data['df_test_results'].index
+
+        pd_all_dates = reg_data['df_all_results']
+        train_dates_amount = len(pd_all_dates) - len(pd_dates)
+
+        self.base += 'Date                {k}\n'.format(k='    '.join(pd_keys))
+        for d, v in zip(pd_dates, pd_values):
+            first_v = str(v[0])
+            second_v = str(v[1])
+            self.base += '{d}     {fv}   {sv}\n'\
+                         .format(d=str(d).replace('00:00:00', ''),
+                                 fv=first_v, sv=second_v)
+        pd_tab = tabulate(reg_data['df_test_results'],
+                          headers='keys', tablefmt='psql')
+        self.base += '--------------------------\n'
+        self.base += 'Train/Test data border: {b}\n'\
+                     .format(b=reg_data['train_test_vert_date'])
+        self.base += 'Train data amount: {a}\n'.format(a=train_dates_amount)
+        self.base += 'Test data amount: {t}\n'.format(t=len(pd_dates))
+
 
 
