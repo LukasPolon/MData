@@ -102,7 +102,8 @@ class Regression(object):
         parsed_train_dates = self.dt_parse(parsed_train_dates)
         parsed_test_dates = self.dt_parse(parsed_test_dates)
 
-        train_test_vert_date = parsed_train_dates[-1]
+        train_test_date = parsed_train_dates[-1]
+        train_test_vert_date = sort_dates_train[-1]
 
         return {'close_pred': sort_pred,
                 'error': error,
@@ -114,6 +115,7 @@ class Regression(object):
                 'parsed_all_dates': parsed_all_dates,
                 'parsed_train_dates': parsed_train_dates,
                 'parsed_test_dates': parsed_test_dates,
+                'train_test_date': train_test_date,
                 'train_test_vert_date': train_test_vert_date}
 
     def svr(self):

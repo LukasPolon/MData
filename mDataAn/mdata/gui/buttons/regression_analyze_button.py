@@ -109,7 +109,7 @@ class RegressionAnalyzeButton(Button):
                           headers='keys', tablefmt='psql')
         self.base += '--------------------------\n'
         self.base += 'Train/Test data border: {b}\n' \
-            .format(b=reg_data['train_test_vert_date'])
+            .format(b=reg_data['train_test_date'])
         self.base += 'Train data amount: {a}\n'.format(a=train_dates_amount)
         self.base += 'Test data amount: {t}\n'.format(t=len(pd_dates))
 
