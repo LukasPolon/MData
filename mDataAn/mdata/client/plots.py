@@ -129,8 +129,8 @@ class PlotsGenerate(object):
 
         df_reg_results = self.reg_data['df_all_results']
         self.regression_plot = df_reg_results.plot(title=plot_title, grid=True)
-        self.regression_plot.axvline(x=self.reg_data['train_test_vert_date'],
-                                     color='red')
+        # self.regression_plot.axvline(x=self.reg_data['train_test_vert_date'],
+        #                              color='red')
         self.regression_plot.set_ylabel('Price')
         self.regression_plot.set_xlabel('Date')
         self.regression_fig = self.regression_plot.get_figure()

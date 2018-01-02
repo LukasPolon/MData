@@ -14,6 +14,7 @@ class RegressionAnalyzeButton(Button):
         self.loaded_data = None
         self.regression = Regression()
         self.config = ConfigManagement()
+        self.reg_key = None
         self.break_bar = '\n{break_ln}\n\n'.format(break_ln='*' * 60)
         super(RegressionAnalyzeButton, self).__init__(**kwargs)
 
@@ -39,7 +40,10 @@ class RegressionAnalyzeButton(Button):
         self.base += 'Mean square error: {mse}\n'.format(mse=reg_data['error'])
 
         self.base += 'Score: {sc}\n'.format(sc=reg_data['score'])
-        self.display_reg_table(reg_data)
+        if self.reg_key == 'linear':
+            self.reg_table_linear(reg_data)
+        else:
+            self.display_reg_table(reg_data)
         self.base += self.break_bar
 
     def _get_loaded_data(self):
@@ -49,6 +53,7 @@ class RegressionAnalyzeButton(Button):
     def get_reg_method(self):
         config_data = self.config.get_data()
         reg_method_key = config_data['regression']
+        self.reg_key = reg_method_key
         reg_method_func = self.regression.regression_methods[reg_method_key]
 
         return reg_method_func
@@ -84,5 +89,28 @@ class RegressionAnalyzeButton(Button):
         self.base += 'Train data amount: {a}\n'.format(a=train_dates_amount)
         self.base += 'Test data amount: {t}\n'.format(t=len(pd_dates))
 
+    def reg_table_linear(self, reg_data):
+        self.base += 'Regression test data:\n'
+        self.base += '--------------------------\n'
+        pd_keys = reg_data['df_test_results'].keys()
+        pd_values = reg_data['df_test_results'].values
+        pd_dates = reg_data['parsed_test_dates']
+
+        pd_all_dates = reg_data['df_all_results']
+        train_dates_amount = len(pd_all_dates) - len(pd_dates)
+
+        for d, v in zip(pd_dates, pd_values):
+            first_v = str(v[0])
+            second_v = str(v[1])
+            self.base += '{d}     {fv}   {sv}\n' \
+                .format(d=d, fv=first_v, sv=second_v)
+
+        pd_tab = tabulate(reg_data['df_test_results'],
+                          headers='keys', tablefmt='psql')
+        self.base += '--------------------------\n'
+        self.base += 'Train/Test data border: {b}\n' \
+            .format(b=reg_data['train_test_vert_date'])
+        self.base += 'Train data amount: {a}\n'.format(a=train_dates_amount)
+        self.base += 'Test data amount: {t}\n'.format(t=len(pd_dates))
 
 
