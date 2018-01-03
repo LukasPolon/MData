@@ -49,6 +49,8 @@ class OptionsScreenLayout(FloatLayout):
         if self._data_types is None:
             reg = Regression()
             self._data_types = reg.regression_data_types
+            self._data_types = [x for x in self._data_types
+                                if x not in ['Volume', 'Adj Close']]
         return self._data_types
 
     @property

@@ -25,10 +25,10 @@ class Regression(object):
     @property
     def regression_methods(self):
         if self._reg_methods is None:
-            reg_methods = {'linear': self.linear,
-                           'svr': self.svr,
-                           'kernel_ridge': self.kernel_ridge,
-                           'gaussian': self.gaussian_process}
+            reg_methods = {'Linear': self.linear,
+                           'SVR': self.svr,
+                           'KRR': self.kernel_ridge,
+                           'Gaussian': self.gaussian_process}
             self._reg_methods = reg_methods
         return self._reg_methods
 
