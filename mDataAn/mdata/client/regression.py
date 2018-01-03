@@ -1,17 +1,14 @@
 import re
 import numpy as np
 import pandas as pd
-from datetime import date
 
 from copy import deepcopy
 
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
-
+from sklearn.metrics import mean_squared_error
 from sklearn.kernel_ridge import KernelRidge
 from sklearn.svm import SVR
 from sklearn.gaussian_process import GaussianProcessRegressor
-
 from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import StandardScaler
 
@@ -53,73 +50,6 @@ class Regression(object):
     def get_data_type(self):
         data = self.conf.get_data()
         return data['data_type']
-
-    # def linear(self):
-    #
-    #     data = deepcopy(self.data)
-    #     split_rate = self.get_split_rate()
-    #     chosen_data_type = self.get_data_type()
-    #     all_data_types = self.regression_data_types
-    #     data_to_drop = [data_t for data_t in all_data_types
-    #                     if data_t != chosen_data_type]
-    #
-    #     sort = data.drop(data_to_drop, axis=1)
-    #     sort_dates = sort.index.values
-    #     sort_values = sort.values
-    #     sort_dates = np.reshape(sort_dates, (len(sort_dates), 1))
-    #
-    #     sort_dates = [[int(d[0])] for d in sort_dates]
-    #     sort_values = np.reshape(sort_values, (len(sort_values), 1))
-    #     sort_dates_train, sort_dates_test = self.split_data(sort_dates,
-    #                                                         split_rate)
-    #
-    #     sort_values_train, sort_values_test = self.split_data(sort_values,
-    #                                                           split_rate)
-    #
-    #     linear_reg = LinearRegression()
-    #     linear_reg.fit(sort_dates_train, sort_values_train)
-    #     sort_pred = linear_reg.predict(sort_dates_test)
-    #
-    #     linear_reg2 = LinearRegression()
-    #     linear_reg2.fit(sort_dates_train, sort_values_train)
-    #     sort_pred2 = linear_reg.predict(sort_dates)
-    #
-    #     error = mean_squared_error(sort_values_test, sort_pred)
-    #     coefficients = linear_reg.coef_
-    #     score = r2_score(sort_values_test, sort_pred)
-    #
-    #     df_test_results = pd.DataFrame(
-    #         index=np.concatenate(tuple(sort_dates_test)),
-    #         data={'Close': np.concatenate(tuple(sort_values_test)),
-    #               'Regression': np.concatenate(tuple(sort_pred))})
-    #
-    #     df_all_results = pd.DataFrame(
-    #         index=np.concatenate(tuple(sort_dates)),
-    #         data={'Close': np.concatenate(tuple(sort_values)),
-    #               'Regression': np.concatenate(tuple(sort_pred2))})
-    #
-    #     parsed_train_dates, parsed_test_dates = self.split_data(sort.index.values, split_rate)
-    #     parsed_all_dates = np.concatenate((parsed_train_dates, parsed_test_dates))
-    #
-    #     parsed_all_dates = self.dt_parse(parsed_all_dates)
-    #     parsed_train_dates = self.dt_parse(parsed_train_dates)
-    #     parsed_test_dates = self.dt_parse(parsed_test_dates)
-    #
-    #     train_test_date = parsed_train_dates[-1]
-    #     train_test_vert_date = sort_dates_train[-1]
-    #
-    #     return {'close_pred': sort_pred,
-    #             'error': error,
-    #             'coefficients': coefficients,
-    #             'score': score,
-    #             'df_test_results': df_test_results,
-    #             'df_all_results': df_all_results,
-    #             'chosen_data': chosen_data_type,
-    #             'parsed_all_dates': parsed_all_dates,
-    #             'parsed_train_dates': parsed_train_dates,
-    #             'parsed_test_dates': parsed_test_dates,
-    #             'train_test_date': train_test_date,
-    #             'train_test_vert_date': train_test_vert_date}
 
     def linear(self):
         data = deepcopy(self.data)
@@ -425,21 +355,6 @@ class Regression(object):
         training = data[:training_len]
         test = data[training_len:]
         return training, test
-
-    def parse_date(self, int_date):
-        n_date = '{y}-{m}-{d}'.format(y=str(int_date)[:4],
-                                      m=str(int_date)[4:6],
-                                      d=str(int_date)[6:])
-        return np.datetime64(n_date)
-
-    def dt_parse(self, dt):
-        e = '2017-11-17T00:00:00.000000000'
-        date_reg = r'([0-9\-]+)T'
-        new_dt = list()
-        for d in dt:
-            new_dt.append(re.match(date_reg, str(d)).group(1))
-        new_dt = np.asarray(new_dt)
-        return new_dt
 
     def change_dates(self, dates):
         original_dates = pd.to_datetime(dates)
