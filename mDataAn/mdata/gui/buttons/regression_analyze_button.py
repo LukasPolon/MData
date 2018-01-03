@@ -40,10 +40,7 @@ class RegressionAnalyzeButton(Button):
         self.base += 'Mean square error: {mse}\n'.format(mse=reg_data['error'])
 
         self.base += 'Score: {sc}\n'.format(sc=reg_data['score'])
-        if self.reg_key == 'linear':
-            self.reg_table_linear(reg_data)
-        else:
-            self.display_reg_table(reg_data)
+        self.display_reg_table(reg_data)
         self.base += self.break_bar
 
     def _get_loaded_data(self):
@@ -88,6 +85,8 @@ class RegressionAnalyzeButton(Button):
                      .format(b=reg_data['train_test_vert_date'])
         self.base += 'Train data amount: {a}\n'.format(a=train_dates_amount)
         self.base += 'Test data amount: {t}\n'.format(t=len(pd_dates))
+        if reg_data['best_params']:
+            self.base += 'Best params: {par}\n'.format(par=reg_data['best_params'])
 
     def reg_table_linear(self, reg_data):
         self.base += 'Regression test data:\n'

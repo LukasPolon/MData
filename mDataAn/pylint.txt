@@ -1,0 +1,866 @@
+
+[LP] C:\Users\LukaszP\Documents\Repos\MData\MData\mDataAn
+>>echo off 
+************* Module mdata.common
+C: 11, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+************* Module mdata.client.data_download
+C: 27, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  7, 0: Missing class docstring (missing-docstring)
+C: 13, 4: Missing method docstring (missing-docstring)
+R:  7, 0: Too few public methods (1/2) (too-few-public-methods)
+************* Module mdata.client.plots
+C: 47, 0: Wrong continued indentation (add 3 spaces).
+                               .format(company=self.last_company,
+                               ^  | (bad-continuation)
+C: 50, 0: Wrong continued indentation (remove 2 spaces).
+                                    .format(company=self.last_company,
+                                  | ^ (bad-continuation)
+C: 58, 0: Wrong continued indentation (remove 1 space).
+                     }
+                    |^ (bad-continuation)
+C: 73, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C: 90, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:106, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:160, 0: Wrong continued indentation (add 2 spaces).
+                                  .format(dir=self._get_tempdir(),
+                                  ^ | (bad-continuation)
+C:162, 0: Trailing newlines (trailing-newlines)
+W:147, 0: Anomalous backslash in string: '\{'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W:150, 0: Anomalous backslash in string: '\{'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W:154, 0: Anomalous backslash in string: '\{'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W:159, 0: Anomalous backslash in string: '\{'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  9, 0: Missing class docstring (missing-docstring)
+R:  9, 0: Too many instance attributes (16/7) (too-many-instance-attributes)
+C: 30, 4: Missing method docstring (missing-docstring)
+R: 30, 4: Method could be a function (no-self-use)
+C: 43, 4: Missing method docstring (missing-docstring)
+W: 62, 0: Unused argument 'elements' (unused-argument)
+C: 80, 4: Missing method docstring (missing-docstring)
+C: 96, 4: Missing method docstring (missing-docstring)
+C:112, 4: Missing method docstring (missing-docstring)
+C:125, 4: Missing method docstring (missing-docstring)
+C:128, 4: Missing method docstring (missing-docstring)
+C:146, 4: Missing method docstring (missing-docstring)
+C:158, 4: Missing method docstring (missing-docstring)
+W:  3, 0: Unused DataFrame imported from pandas (unused-import)
+W:  4, 0: Unused pyplot imported from matplotlib as plt (unused-import)
+************* Module mdata.client.regression
+C: 56, 0: Wrong continued indentation (remove 1 space).
+                           axis=1)
+                          |^ (bad-continuation)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 14, 0: Missing class docstring (missing-docstring)
+C: 22, 4: Missing method docstring (missing-docstring)
+C: 30, 4: Missing method docstring (missing-docstring)
+C: 37, 4: Missing method docstring (missing-docstring)
+C: 40, 4: Missing method docstring (missing-docstring)
+C: 44, 4: Missing method docstring (missing-docstring)
+C: 48, 4: Missing method docstring (missing-docstring)
+C: 72, 4: Missing method docstring (missing-docstring)
+R: 72, 4: Too many local variables (21/15) (too-many-locals)
+C:115, 4: Missing method docstring (missing-docstring)
+R:115, 4: Too many local variables (21/15) (too-many-locals)
+C:159, 4: Missing method docstring (missing-docstring)
+R:159, 4: Method could be a function (no-self-use)
+C:169, 4: Invalid constant name "ob" (invalid-name)
+C:  4, 0: standard import "from copy import deepcopy" should be placed before "import numpy as np" (wrong-import-order)
+************* Module mdata.cli_plugins.csv_parde
+C:  2, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+W:  1, 0: Unused import csv (unused-import)
+************* Module mdata.cli_plugins.scikit_test
+C: 11, 0: Final newline missing (missing-final-newline)
+C: 11, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  4, 0: Invalid constant name "n_samples" (invalid-name)
+C:  4,11: Invalid constant name "n_features" (invalid-name)
+C:  5, 0: Invalid constant name "rng" (invalid-name)
+E:  5, 6: Module 'numpy.random' has no 'RandomState' member (no-member)
+C:  6, 0: Invalid constant name "y" (invalid-name)
+C:  8, 0: Invalid constant name "clf" (invalid-name)
+************* Module mdata.drivers.config.config_management
+C: 40, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+C: 15, 4: Missing method docstring (missing-docstring)
+C: 21, 4: Missing method docstring (missing-docstring)
+W: 23,20: Access to a protected member _sections of a client class (protected-access)
+C: 26, 4: Missing method docstring (missing-docstring)
+C: 34,44: Invalid variable name "f" (invalid-name)
+C: 38, 4: Invalid constant name "ob" (invalid-name)
+C:  2, 0: standard import "from configparser import ConfigParser" should be placed before "from mdata import common" (wrong-import-order)
+C:  3, 0: standard import "from configparser import RawConfigParser" should be placed before "from mdata import common" (wrong-import-order)
+************* Module mdata.drivers.databases.db_driver
+C: 80, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 11, 0: Missing class docstring (missing-docstring)
+R: 15, 4: Method could be a function (no-self-use)
+R: 31, 4: Method could be a function (no-self-use)
+R: 45, 4: Method could be a function (no-self-use)
+C: 68, 4: Missing function docstring (missing-docstring)
+************* Module mdata.drivers.databases.operations
+C: 64, 0: Wrong hanging indentation (remove 36 spaces).
+                                                exists_query.exists()).scalar()
+            |                                   ^ (bad-continuation)
+C: 71, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C: 76, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 10, 0: Missing class docstring (missing-docstring)
+C: 15, 4: Missing method docstring (missing-docstring)
+C: 21, 4: Missing method docstring (missing-docstring)
+C: 40, 4: Missing method docstring (missing-docstring)
+C: 54, 4: Missing method docstring (missing-docstring)
+C: 69, 4: Invalid constant name "ob" (invalid-name)
+C: 70, 4: Invalid constant name "r" (invalid-name)
+W:  3, 0: Unused DbDriver imported from mdata.drivers.databases.db_driver (unused-import)
+W:  7, 0: Unused select imported from sqlalchemy.sql.expression (unused-import)
+C:  7, 0: Imports from package sqlalchemy are not grouped (ungrouped-imports)
+************* Module mdata.drivers.databases.mDataAnDB.company_info
+C: 79, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 30, 4: Invalid class attribute name "id" (invalid-name)
+C: 45,52: Invalid variable name "f" (invalid-name)
+R: 37, 4: Method could be a function (no-self-use)
+W: 67, 8: Expression "[session.add(CompanyInfo(**row)) for row in self._get_data()[1:]]" is assigned to nothing (expression-not-assigned)
+C: 72, 4: Invalid constant name "ob" (invalid-name)
+E: 75, 4: No value for argument 'session' in method call (no-value-for-parameter)
+************* Module mdata.drivers.databases.mDataAnDB
+C:  1, 0: Invalid module name "mDataAnDB" (invalid-name)
+************* Module mdata.gui.main_frame
+C:  3, 0: Exactly one space required after comma
+Config.set('graphics', 'resizable',0)
+                                  ^ (bad-whitespace)
+C: 19, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  5, 0: Import "from kivy.core.window import Window" should be placed at the top of the module (wrong-import-position)
+C:  8, 0: Import "from mdata.gui.layouts.main_layout import MainLayout" should be placed at the top of the module (wrong-import-position)
+C: 11, 0: Missing class docstring (missing-docstring)
+C: 17, 4: Invalid constant name "ob" (invalid-name)
+************* Module mdata.gui.buttons.data_diagram_button
+C: 34, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+C: 17, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.buttons.data_hl_diagram_button
+C: 33, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+C: 17, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.buttons.data_reg_diagram_button
+C: 34, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  7, 0: Missing class docstring (missing-docstring)
+C: 18, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.buttons.data_volume_diagram_button
+C: 32, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+C: 16, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.buttons.exit_button
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  7, 0: Missing class docstring (missing-docstring)
+C: 16, 4: Missing method docstring (missing-docstring)
+R: 16, 4: Method could be a function (no-self-use)
+************* Module mdata.gui.buttons.info_button
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  4, 0: Missing class docstring (missing-docstring)
+************* Module mdata.gui.buttons.load_data_button
+C: 50, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  9, 0: Missing class docstring (missing-docstring)
+C: 39, 4: Missing method docstring (missing-docstring)
+W:  6, 0: Unused PlotsGenerate imported from mdata.client.plots (unused-import)
+************* Module mdata.gui.buttons.next_button
+C: 17, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  5, 0: Missing class docstring (missing-docstring)
+************* Module mdata.gui.buttons.open_explorer_button
+C: 20, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  8, 0: Missing class docstring (missing-docstring)
+************* Module mdata.gui.buttons.options_button
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  5, 0: Missing class docstring (missing-docstring)
+W:  2, 0: Unused ConfigManagement imported from mdata.drivers.config.config_management (unused-import)
+************* Module mdata.gui.buttons.regression_analyze_button
+C: 60, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  7, 0: Missing class docstring (missing-docstring)
+C: 47, 4: Missing method docstring (missing-docstring)
+C: 54, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.buttons.regression_button
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  4, 0: Missing class docstring (missing-docstring)
+************* Module mdata.gui.buttons.regression_save_button
+C: 38, 0: Wrong continued indentation (add 10 spaces).
+                                  .format(dir=folder_name,
+                                  ^         | (bad-continuation)
+C: 39, 0: Wrong continued indentation (add 6 spaces).
+                                    file=self.plots.diagram_names['prices_oc']))
+                                    ^     | (bad-continuation)
+C: 42, 0: Wrong continued indentation (add 10 spaces).
+                                     .format(dir=folder_name,
+                                     ^         | (bad-continuation)
+C: 43, 0: Wrong continued indentation (add 9 spaces).
+                                    file=self.plots.diagram_names['volume']))
+                                    ^        | (bad-continuation)
+C: 46, 0: Wrong continued indentation (add 10 spaces).
+                                  .format(dir=folder_name,
+                                  ^         | (bad-continuation)
+C: 50, 0: Wrong continued indentation (add 12 spaces).
+                                  .format(dir=folder_name,
+                                  ^           | (bad-continuation)
+C: 65, 0: Trailing newlines (trailing-newlines)
+W: 37, 0: Anomalous backslash in string: '\{'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W: 41, 0: Anomalous backslash in string: '\{'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W: 45, 0: Anomalous backslash in string: '\{'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W: 49, 0: Anomalous backslash in string: '\{'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  8, 0: Missing class docstring (missing-docstring)
+C: 21, 4: Missing method docstring (missing-docstring)
+C: 24, 4: Missing method docstring (missing-docstring)
+C: 35, 4: Missing method docstring (missing-docstring)
+C: 53, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.buttons.save_button
+C: 35, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+W: 34,15: Catching too general exception Exception (broad-except)
+C: 34,28: Invalid variable name "e" (invalid-name)
+C: 38, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.items.company_list_textinput
+C: 53, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  5, 0: Missing class docstring (missing-docstring)
+R:  5, 0: Too many instance attributes (10/7) (too-many-instance-attributes)
+C: 23, 4: Missing method docstring (missing-docstring)
+C: 45, 4: Missing method docstring (missing-docstring)
+C: 49, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.items.company_textinput
+C: 38, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+C: 20, 4: Missing method docstring (missing-docstring)
+W: 20, 0: Unused argument 'args' (unused-argument)
+C: 29, 4: Missing method docstring (missing-docstring)
+C: 32, 4: Missing method docstring (missing-docstring)
+W: 32, 0: Unused argument 'args' (unused-argument)
+C: 35, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.items.data_split_rate_textinput
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  4, 0: Missing class docstring (missing-docstring)
+C: 17, 4: Missing method docstring (missing-docstring)
+C: 20, 4: Missing method docstring (missing-docstring)
+W: 20, 0: Unused argument 'args' (unused-argument)
+C: 23, 4: Missing method docstring (missing-docstring)
+C: 26, 4: Missing method docstring (missing-docstring)
+W: 26, 0: Unused argument 'args' (unused-argument)
+W: 27, 8: Unused variable 'rate' (unused-variable)
+************* Module mdata.gui.items.data_type_dropdown
+C: 37, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  5, 0: Missing class docstring (missing-docstring)
+C: 20, 4: Missing method docstring (missing-docstring)
+C: 23, 4: Missing method docstring (missing-docstring)
+W: 23, 0: Unused argument 'args' (unused-argument)
+C: 26, 4: Missing method docstring (missing-docstring)
+C: 36, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.items.date_textinput
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  8, 0: Missing class docstring (missing-docstring)
+R:  8, 0: Too many instance attributes (8/7) (too-many-instance-attributes)
+C: 23, 4: Missing method docstring (missing-docstring)
+W: 27, 8: No exception type(s) specified (bare-except)
+W: 23, 0: Unused argument 'args' (unused-argument)
+C: 30, 4: Missing method docstring (missing-docstring)
+C: 33, 4: Missing method docstring (missing-docstring)
+W: 33, 0: Unused argument 'args' (unused-argument)
+C: 36, 4: Missing method docstring (missing-docstring)
+C: 39, 4: Missing method docstring (missing-docstring)
+C:  3, 0: standard import "from datetime import datetime" should be placed before "from kivy.uix.textinput import TextInput" (wrong-import-order)
+************* Module mdata.gui.items.regression_dropdown
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  5, 0: Missing class docstring (missing-docstring)
+C: 20, 4: Missing method docstring (missing-docstring)
+C: 23, 4: Missing method docstring (missing-docstring)
+W: 23, 0: Unused argument 'args' (unused-argument)
+C: 26, 4: Missing method docstring (missing-docstring)
+C: 36, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.items.reg_textinput
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+C: 20, 4: Missing method docstring (missing-docstring)
+C: 23, 4: Missing method docstring (missing-docstring)
+C: 26, 4: Missing method docstring (missing-docstring)
+W:  3, 0: Unused Regression imported from mdata.client.regression (unused-import)
+************* Module mdata.gui.items.temp_dir_textinput
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  5, 0: Missing class docstring (missing-docstring)
+C: 18, 4: Missing method docstring (missing-docstring)
+W: 18, 0: Unused argument 'args' (unused-argument)
+C: 24, 4: Missing method docstring (missing-docstring)
+C: 27, 4: Missing method docstring (missing-docstring)
+W: 27, 0: Unused argument 'args' (unused-argument)
+C: 30, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.layouts.data_diagram_popup_layout
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  4, 0: No name 'matplotlib' in module 'kivy.garden' (no-name-in-module)
+E:  4, 0: Unable to import 'kivy.garden.matplotlib.backend_kivyagg' (import-error)
+C:  8, 0: Missing class docstring (missing-docstring)
+C: 19, 4: Missing method docstring (missing-docstring)
+W: 33,16: No exception type(s) specified (bare-except)
+R: 40, 4: Method could be a function (no-self-use)
+************* Module mdata.gui.layouts.exit_popup_layout
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  8, 0: Missing class docstring (missing-docstring)
+C: 17, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.layouts.info_screen_layout
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  5, 0: Missing class docstring (missing-docstring)
+C: 14, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.layouts.main_layout
+C: 37, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 13, 0: Missing class docstring (missing-docstring)
+C: 28, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.layouts.menu_layout
+C: 40, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 10, 0: Missing class docstring (missing-docstring)
+C: 25, 4: Missing method docstring (missing-docstring)
+C: 34, 4: Missing method docstring (missing-docstring)
+C:  7, 0: Imports from package kivy are not grouped (ungrouped-imports)
+************* Module mdata.gui.layouts.options_screen_layout
+C:106, 0: Wrong continued indentation (add 7 spaces).
+                                                conf_data=self.config_data,
+                                                ^      | (bad-continuation)
+C:107, 0: Wrong continued indentation (add 7 spaces).
+                                                reg_methods=self.regression,
+                                                ^      | (bad-continuation)
+C:108, 0: Wrong continued indentation (add 7 spaces).
+                                                base=self),
+                                                ^      | (bad-continuation)
+C:111, 0: Wrong continued indentation (add 7 spaces).
+                                                    conf_data=self.config_data,
+                                                    ^      | (bad-continuation)
+C:112, 0: Wrong continued indentation (add 7 spaces).
+                                                    base=self),
+                                                    ^      | (bad-continuation)
+C:126, 0: Wrong continued indentation (add 5 spaces).
+                                     company_list=self.inputs['company_list']),
+                                     ^    | (bad-continuation)
+C:161, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 23, 0: Missing class docstring (missing-docstring)
+R: 23, 0: Too many instance attributes (10/7) (too-many-instance-attributes)
+C: 41, 4: Missing method docstring (missing-docstring)
+C: 48, 4: Missing method docstring (missing-docstring)
+C: 55, 4: Missing method docstring (missing-docstring)
+C: 61, 4: Missing method docstring (missing-docstring)
+C: 89, 4: Missing method docstring (missing-docstring)
+C:121, 4: Missing method docstring (missing-docstring)
+C:131, 4: Missing method docstring (missing-docstring)
+C:154, 4: Missing method docstring (missing-docstring)
+C:158,19: Using type() instead of isinstance() for a typecheck. (unidiomatic-typecheck)
+W:160, 8: Expression "[self.remove_widget(wid) for wid in hide]" is assigned to nothing (expression-not-assigned)
+W:  3, 0: Unused Button imported from kivy.uix.button (unused-import)
+W:  4, 0: Unused Image imported from kivy.uix.image (unused-import)
+************* Module mdata.gui.layouts.regression_screen_layout
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  8, 0: Missing class docstring (missing-docstring)
+C: 21, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.layouts.reg_display_layout
+C: 17, 0: Wrong continued indentation (add 4 spaces).
+                                                         plots=kwargs['plots'])
+                                                         ^   | (bad-continuation)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 10, 0: Missing class docstring (missing-docstring)
+C: 29, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.layouts.reg_menu_layout
+C: 30, 0: Wrong hanging indentation (remove 13 spaces).
+                                        text='Regression\n   analyze',
+                           |            ^ (bad-continuation)
+C: 31, 0: Wrong hanging indentation (remove 13 spaces).
+                                        display=self.display_panel,
+                           |            ^ (bad-continuation)
+C: 32, 0: Wrong hanging indentation (remove 13 spaces).
+                                        plots=self.plots),
+                           |            ^ (bad-continuation)
+C: 35, 0: Wrong continued indentation (add 8 spaces).
+                                                display=self.display_panel,
+                                                ^       | (bad-continuation)
+C: 36, 0: Wrong continued indentation (add 8 spaces).
+                                                plots=self.plots)}
+                                                ^       | (bad-continuation)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  9, 0: Missing class docstring (missing-docstring)
+C: 24, 4: Missing method docstring (missing-docstring)
+C: 40, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.screens.info_screen
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+C: 15, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.screens.options_screen
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  7, 0: Missing class docstring (missing-docstring)
+C: 16, 4: Missing method docstring (missing-docstring)
+W:  2, 0: Unused Button imported from kivy.uix.button (unused-import)
+************* Module mdata.gui.screens.regression_screen
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+C: 15, 4: Missing method docstring (missing-docstring)
+************* Module mdata.gui.screens.__init__
+R:  1, 0: Similar lines in 4 files
+==mdata.gui.buttons.data_diagram_button:19
+==mdata.gui.buttons.data_hl_diagram_button:19
+==mdata.gui.buttons.data_reg_diagram_button:20
+==mdata.gui.buttons.data_volume_diagram_button:18
+        popup = Popup(title='DataDiagram',
+                      content=data_popup,
+                      size=(550, 550),
+                      size_hint=(None, None))
+        data_popup.kwargs = {'base': popup}
+        data_popup()
+        popup.open()
+
+    def _verify_plot_generate(self):
+        check = True
+        if self.plots.data is None:
+            check = False
+
+        return check (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==mdata.gui.items.data_type_dropdown:14
+==mdata.gui.items.regression_dropdown:14
+    def __call__(self):
+        self.set_text(self.get_actual_method())
+        self.build()
+        return self
+
+    def set_text(self, text):
+        self.text = text
+
+    def get_text(self, *args):
+        return self.text
+
+    def build(self): (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==mdata.gui.items.data_type_dropdown:28
+==mdata.gui.items.regression_dropdown:28
+            btn.bind(on_release=lambda btn: self.drop_list.select(btn.text))
+            self.drop_list.add_widget(btn)
+
+        self.bind(on_release=self.drop_list.open)
+        self.drop_list.bind(on_select=lambda instance, x: setattr(self,
+                                                                  'text', x))
+
+    def get_actual_method(self): (duplicate-code)
+R:  1, 0: Similar lines in 3 files
+==mdata.gui.items.data_split_rate_textinput:14
+==mdata.gui.items.data_type_dropdown:17
+==mdata.gui.items.regression_dropdown:17
+        return self
+
+    def set_text(self, text):
+        self.text = text
+
+    def get_text(self, *args):
+        return self.text
+ (duplicate-code)
+R:  1, 0: Similar lines in 3 files
+==mdata.gui.items.company_textinput:26
+==mdata.gui.items.date_textinput:27
+==mdata.gui.items.temp_dir_textinput:21
+            self.validate = False
+
+    def set_text(self, text):
+        self.text = text
+
+    def get_text(self, *args):
+        return self.text
+ (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==mdata.gui.layouts.menu_layout:19
+==mdata.gui.layouts.reg_menu_layout:18
+    def __call__(self):
+        self.generate()
+        return self
+
+    @property
+    def buttons(self):
+        if self._buttons is None: (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==mdata.gui.screens.info_screen:11
+==mdata.gui.screens.regression_screen:11
+    def __call__(self):
+        return self.generate()
+
+    def generate(self):
+        self.add_widget(self.info_layout())
+        return self (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==mdata.gui.items.data_split_rate_textinput:4
+==mdata.gui.items.date_textinput:8
+    def __init__(self, **kwargs):
+        self.validate = True
+        self.multiline = False
+        self.size_hint = (0.1, 0.05)
+        self.config_data = kwargs['conf_data']
+        self.base = kwargs['base'] (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==mdata.gui.items.company_textinput:6
+==mdata.gui.items.temp_dir_textinput:5
+    def __init__(self, **kwargs):
+        self.validate = True
+        self.multiline = False
+        self.size_hint = (0.4, 0.05)
+        self.config_data = kwargs['conf_data']
+        self.base = kwargs['base'] (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==mdata.gui.items.data_type_dropdown:7
+==mdata.gui.items.regression_dropdown:7
+        self.base = kwargs['base']
+        self.conf_data = kwargs['conf_data']
+        self.drop_list = DropDown()
+        self.size_hint = (0.1, 0.05)
+        self.validate = True (duplicate-code)
+
+
+Report
+======
+1245 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |58     |58         |=          |22.41       |1.72     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |42     |42         |=          |2.38        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|method   |189    |189        |=          |51.85       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|function |2      |2          |=          |50.00       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+External dependencies
+---------------------
+::
+
+    configparser (mdata.drivers.config.config_management)
+    kivy 
+      \-app (mdata.gui.layouts.exit_popup_layout,mdata.gui.main_frame)
+      \-config (mdata.gui.main_frame)
+      \-core 
+      | \-window (mdata.gui.main_frame)
+      \-uix 
+        \-anchorlayout (mdata.gui.layouts.info_screen_layout)
+        \-boxlayout (mdata.gui.layouts.menu_layout,mdata.gui.layouts.reg_menu_layout)
+        \-button (mdata.gui.buttons.data_diagram_button,mdata.gui.buttons.data_hl_diagram_button,mdata.gui.buttons.data_reg_diagram_button,mdata.gui.buttons.data_volume_diagram_button,mdata.gui.buttons.exit_button,mdata.gui.buttons.info_button,mdata.gui.buttons.load_data_button,mdata.gui.buttons.next_button,mdata.gui.buttons.open_explorer_button,mdata.gui.buttons.options_button,mdata.gui.buttons.regression_analyze_button,mdata.gui.buttons.regression_button,mdata.gui.buttons.regression_save_button,mdata.gui.buttons.save_button,mdata.gui.items.data_type_dropdown,mdata.gui.items.regression_dropdown,mdata.gui.layouts.exit_popup_layout,mdata.gui.layouts.menu_layout,mdata.gui.layouts.options_screen_layout,mdata.gui.layouts.reg_menu_layout,mdata.gui.screens.options_screen)
+        \-dropdown (mdata.gui.items.data_type_dropdown,mdata.gui.items.regression_dropdown)
+        \-floatlayout (mdata.gui.layouts.options_screen_layout,mdata.gui.layouts.reg_display_layout)
+        \-gridlayout (mdata.gui.layouts.data_diagram_popup_layout,mdata.gui.layouts.exit_popup_layout,mdata.gui.layouts.main_layout,mdata.gui.layouts.regression_screen_layout)
+        \-image (mdata.gui.layouts.options_screen_layout)
+        \-label (mdata.gui.layouts.data_diagram_popup_layout,mdata.gui.layouts.exit_popup_layout,mdata.gui.layouts.info_screen_layout,mdata.gui.layouts.options_screen_layout)
+        \-popup (mdata.gui.buttons.data_diagram_button,mdata.gui.buttons.data_hl_diagram_button,mdata.gui.buttons.data_reg_diagram_button,mdata.gui.buttons.data_volume_diagram_button,mdata.gui.buttons.exit_button)
+        \-screenmanager (mdata.gui.layouts.main_layout,mdata.gui.screens.info_screen,mdata.gui.screens.options_screen,mdata.gui.screens.regression_screen)
+        \-textinput (mdata.gui.items.company_list_textinput,mdata.gui.items.company_textinput,mdata.gui.items.data_split_rate_textinput,mdata.gui.items.date_textinput,mdata.gui.items.reg_textinput,mdata.gui.items.temp_dir_textinput)
+    matplotlib 
+      \-pyplot (mdata.client.plots)
+    mdata 
+      \-client 
+      | \-data_download (mdata.gui.buttons.load_data_button)
+      | \-plots (mdata.gui.buttons.load_data_button,mdata.gui.layouts.regression_screen_layout)
+      | \-regression (mdata.gui.buttons.regression_analyze_button,mdata.gui.items.reg_textinput,mdata.gui.layouts.options_screen_layout)
+      \-common (mdata.drivers.config.config_management,mdata.drivers.databases.db_driver,mdata.drivers.databases.mDataAnDB.company_info)
+      \-drivers 
+      | \-config 
+      | | \-config_management (mdata.client.data_download,mdata.client.plots,mdata.client.regression,mdata.gui.buttons.load_data_button,mdata.gui.buttons.open_explorer_button,mdata.gui.buttons.options_button,mdata.gui.buttons.regression_analyze_button,mdata.gui.buttons.regression_save_button,mdata.gui.buttons.save_button,mdata.gui.layouts.data_diagram_popup_layout,mdata.gui.layouts.options_screen_layout)
+      | \-databases 
+      |   \-db_driver (mdata.drivers.databases.mDataAnDB.company_info,mdata.drivers.databases.operations)
+      |   \-mDataAnDB 
+      |   | \-company_info (mdata.drivers.databases.operations)
+      |   \-operations (mdata.client.data_download,mdata.gui.items.company_list_textinput,mdata.gui.items.company_textinput,mdata.gui.items.date_textinput)
+      \-gui 
+        \-buttons 
+        | \-data_diagram_button (mdata.gui.layouts.reg_display_layout)
+        | \-data_hl_diagram_button (mdata.gui.layouts.reg_display_layout)
+        | \-data_reg_diagram_button (mdata.gui.layouts.reg_display_layout)
+        | \-data_volume_diagram_button (mdata.gui.layouts.reg_display_layout)
+        | \-exit_button (mdata.gui.layouts.menu_layout)
+        | \-info_button (mdata.gui.layouts.menu_layout)
+        | \-load_data_button (mdata.gui.layouts.reg_menu_layout)
+        | \-next_button (mdata.gui.layouts.options_screen_layout)
+        | \-open_explorer_button (mdata.gui.layouts.options_screen_layout)
+        | \-options_button (mdata.gui.layouts.menu_layout)
+        | \-regression_analyze_button (mdata.gui.layouts.reg_menu_layout)
+        | \-regression_button (mdata.gui.layouts.menu_layout)
+        | \-regression_save_button (mdata.gui.layouts.reg_menu_layout)
+        | \-save_button (mdata.gui.layouts.options_screen_layout)
+        \-items 
+        | \-company_list_textinput (mdata.gui.layouts.options_screen_layout)
+        | \-company_textinput (mdata.gui.layouts.options_screen_layout)
+        | \-data_split_rate_textinput (mdata.gui.layouts.options_screen_layout)
+        | \-data_type_dropdown (mdata.gui.layouts.options_screen_layout)
+        | \-date_textinput (mdata.gui.layouts.options_screen_layout)
+        | \-reg_textinput (mdata.gui.layouts.reg_display_layout)
+        | \-regression_dropdown (mdata.gui.layouts.options_screen_layout)
+        | \-temp_dir_textinput (mdata.gui.layouts.options_screen_layout)
+        \-layouts 
+        | \-data_diagram_popup_layout (mdata.gui.buttons.data_diagram_button,mdata.gui.buttons.data_hl_diagram_button,mdata.gui.buttons.data_reg_diagram_button,mdata.gui.buttons.data_volume_diagram_button)
+        | \-exit_popup_layout (mdata.gui.buttons.exit_button)
+        | \-info_screen_layout (mdata.gui.screens.info_screen)
+        | \-main_layout (mdata.gui.main_frame)
+        | \-menu_layout (mdata.gui.layouts.main_layout)
+        | \-options_screen_layout (mdata.gui.screens.options_screen)
+        | \-reg_display_layout (mdata.gui.layouts.regression_screen_layout)
+        | \-reg_menu_layout (mdata.gui.layouts.regression_screen_layout)
+        | \-regression_screen_layout (mdata.gui.screens.regression_screen)
+        \-screens 
+          \-info_screen (mdata.gui.layouts.main_layout)
+          \-options_screen (mdata.gui.layouts.main_layout)
+          \-regression_screen (mdata.gui.layouts.main_layout)
+    numpy (mdata.cli_plugins.scikit_test,mdata.client.regression)
+    pandas (mdata.client.plots,mdata.client.regression)
+    pandas_datareader 
+      \-data (mdata.client.data_download)
+    sklearn 
+      \-kernel_ridge (mdata.cli_plugins.scikit_test,mdata.client.regression)
+      \-linear_model (mdata.client.regression)
+      \-metrics (mdata.client.regression)
+    sqlalchemy (mdata.drivers.databases.db_driver,mdata.drivers.databases.mDataAnDB.company_info,mdata.drivers.databases.operations)
+      \-ext 
+      | \-declarative (mdata.drivers.databases.db_driver)
+      \-orm (mdata.drivers.databases.db_driver)
+      \-pool (mdata.drivers.databases.db_driver)
+      \-sql 
+        \-expression (mdata.drivers.databases.operations)
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |1443   |73.29 |NC       |NC         |
++----------+-------+------+---------+-----------+
+|docstring |117    |5.94  |NC       |NC         |
++----------+-------+------+---------+-----------+
+|comment   |9      |0.46  |NC       |NC         |
++----------+-------+------+---------+-----------+
+|empty     |400    |20.31 |NC       |NC         |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |124   |124      |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |6.489 |6.489    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |259    |259      |=          |
++-----------+-------+---------+-----------+
+|refactor   |25     |25       |=          |
++-----------+-------+---------+-----------+
+|warning    |37     |37       |=          |
++-----------+-------+---------+-----------+
+|error      |4      |4        |=          |
++-----------+-------+---------+-----------+
+
+
+
+% errors / warnings by module
+-----------------------------
+
++-----------------------------------------------+------+--------+---------+-----------+
+|module                                         |error |warning |refactor |convention |
++===============================================+======+========+=========+===========+
+|mdata.gui.layouts.data_diagram_popup_layout    |50.00 |2.70    |4.00     |1.16       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.drivers.databases.mDataAnDB.company_info |25.00 |2.70    |4.00     |1.93       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.cli_plugins.scikit_test                  |25.00 |0.00    |0.00     |3.09       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.client.plots                             |0.00  |18.92   |8.00     |7.34       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.regression_save_button       |0.00  |10.81   |0.00     |5.02       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.layouts.options_screen_layout        |0.00  |8.11    |4.00     |6.95       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.items.date_textinput                 |0.00  |8.11    |4.00     |3.09       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.items.data_split_rate_textinput      |0.00  |8.11    |0.00     |2.32       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.drivers.databases.operations             |0.00  |5.41    |0.00     |4.63       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.items.company_textinput              |0.00  |5.41    |0.00     |2.70       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.items.temp_dir_textinput             |0.00  |5.41    |0.00     |2.32       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.drivers.config.config_management         |0.00  |2.70    |0.00     |3.86       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.items.data_type_dropdown             |0.00  |2.70    |0.00     |2.70       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.items.regression_dropdown            |0.00  |2.70    |0.00     |2.32       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.items.reg_textinput                  |0.00  |2.70    |0.00     |1.93       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.save_button                  |0.00  |2.70    |0.00     |1.93       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.load_data_button             |0.00  |2.70    |0.00     |1.54       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.screens.options_screen               |0.00  |2.70    |0.00     |1.16       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.options_button               |0.00  |2.70    |0.00     |0.77       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.cli_plugins.csv_parde                    |0.00  |2.70    |0.00     |0.77       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.screens.__init__                     |0.00  |0.00    |40.00    |0.00       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.client.regression                        |0.00  |0.00    |12.00    |5.41       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.drivers.databases.db_driver              |0.00  |0.00    |12.00    |1.54       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.items.company_list_textinput         |0.00  |0.00    |4.00     |2.32       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.client.data_download                     |0.00  |0.00    |4.00     |1.54       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.exit_button                  |0.00  |0.00    |4.00     |1.16       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.layouts.reg_menu_layout              |0.00  |0.00    |0.00     |3.47       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.main_frame                           |0.00  |0.00    |0.00     |2.70       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.layouts.menu_layout                  |0.00  |0.00    |0.00     |2.32       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.regression_analyze_button    |0.00  |0.00    |0.00     |1.93       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.layouts.reg_display_layout           |0.00  |0.00    |0.00     |1.54       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.layouts.main_layout                  |0.00  |0.00    |0.00     |1.54       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.data_volume_diagram_button   |0.00  |0.00    |0.00     |1.54       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.data_reg_diagram_button      |0.00  |0.00    |0.00     |1.54       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.data_hl_diagram_button       |0.00  |0.00    |0.00     |1.54       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.data_diagram_button          |0.00  |0.00    |0.00     |1.54       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.screens.regression_screen            |0.00  |0.00    |0.00     |1.16       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.screens.info_screen                  |0.00  |0.00    |0.00     |1.16       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.layouts.regression_screen_layout     |0.00  |0.00    |0.00     |1.16       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.layouts.info_screen_layout           |0.00  |0.00    |0.00     |1.16       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.layouts.exit_popup_layout            |0.00  |0.00    |0.00     |1.16       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.open_explorer_button         |0.00  |0.00    |0.00     |1.16       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.next_button                  |0.00  |0.00    |0.00     |1.16       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.regression_button            |0.00  |0.00    |0.00     |0.77       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.gui.buttons.info_button                  |0.00  |0.00    |0.00     |0.77       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.common                                   |0.00  |0.00    |0.00     |0.77       |
++-----------------------------------------------+------+--------+---------+-----------+
+|mdata.drivers.databases.mDataAnDB.__init__     |0.00  |0.00    |0.00     |0.39       |
++-----------------------------------------------+------+--------+---------+-----------+
+
+
+
+Messages
+--------
+
++------------------------------+------------+
+|message id                    |occurrences |
++==============================+============+
+|missing-docstring             |178         |
++------------------------------+------------+
+|bad-continuation              |24          |
++------------------------------+------------+
+|invalid-name                  |16          |
++------------------------------+------------+
+|trailing-newlines             |14          |
++------------------------------+------------+
+|unused-import                 |11          |
++------------------------------+------------+
+|unused-argument               |11          |
++------------------------------+------------+
+|missing-final-newline         |11          |
++------------------------------+------------+
+|duplicate-code                |10          |
++------------------------------+------------+
+|no-self-use                   |8           |
++------------------------------+------------+
+|anomalous-backslash-in-string |8           |
++------------------------------+------------+
+|superfluous-parens            |6           |
++------------------------------+------------+
+|wrong-import-order            |4           |
++------------------------------+------------+
+|too-many-instance-attributes  |4           |
++------------------------------+------------+
+|wrong-import-position         |2           |
++------------------------------+------------+
+|ungrouped-imports             |2           |
++------------------------------+------------+
+|too-many-locals               |2           |
++------------------------------+------------+
+|expression-not-assigned       |2           |
++------------------------------+------------+
+|bare-except                   |2           |
++------------------------------+------------+
+|unused-variable               |1           |
++------------------------------+------------+
+|unidiomatic-typecheck         |1           |
++------------------------------+------------+
+|too-few-public-methods        |1           |
++------------------------------+------------+
+|protected-access              |1           |
++------------------------------+------------+
+|no-value-for-parameter        |1           |
++------------------------------+------------+
+|no-name-in-module             |1           |
++------------------------------+------------+
+|no-member                     |1           |
++------------------------------+------------+
+|import-error                  |1           |
++------------------------------+------------+
+|broad-except                  |1           |
++------------------------------+------------+
+|bad-whitespace                |1           |
++------------------------------+------------+
+
+
+
+
+------------------------------------------------------------------
+Your code has been rated at 7.26/10 (previous run: 7.26/10, +0.00)
+
