@@ -77,7 +77,7 @@ class Regression(object):
         sort_values_train, sort_values_test = self.split_data(sort_values,
                                                               split_rate)
 
-        linear_reg = LinearRegression()
+        linear_reg = LinearRegression(fit_intercept=False)
         linear_reg.fit(sort_dates_train, sort_values_train)
         sort_pred = linear_reg.predict(sort_dates)
 
